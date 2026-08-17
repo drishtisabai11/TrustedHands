@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ink: #17211D;
+    --color-slate: #6E1A37;      /* Deep Burgundy / Wine #6E1A37 */
+    --color-mineral: #AE2448;    /* Crimson Red #AE2448 */
+    --color-sage: #72BAA9;       /* Muted Seafoam / Teal #72BAA9 */
+    --color-clay: #AE2448;       /* Crimson Red #AE2448 */
+    --color-parchment: #D5E7B5;  /* Soft Mint Surface #D5E7B5 */
+    --color-bone: #FBF9F4;       /* Bone White #FBF9F4 */
+    --color-charcoal: #292E2B;
+    --color-mist: #D9DED6;
+  }
+
+  body {
+    background-color: var(--color-parchment);
+    color: var(--color-charcoal);
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'DM Serif Display', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom scrollbars & smooth transitions */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #D5E7B5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #72BAA9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AE2448;
+}
+
+/* Focused UI outlines */
+*:focus-visible {
+  outline: 2px solid #AE2448;
+  outline-offset: 2px;
+}
