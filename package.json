@@ -7,8 +7,12 @@
     "dev": "npx concurrently -n \"SERVER,CLIENT\" -c \"cyan,emerald\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "dev:client": "npm run dev --prefix client",
     "dev:server": "npm run dev --prefix server",
-    "build": "npm run build --prefix server && npm run build --prefix client",
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run postinstall && npm run build --prefix server && npm run build --prefix client",
     "install:all": "npm install && npm install --prefix client && npm install --prefix server"
+  },
+  "dependencies": {
+    "typescript": "^5.4.3"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
