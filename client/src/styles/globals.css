@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --color-ink: #202624;        /* Near Black #202624 */
-    --color-slate: #3A2432;      /* Mulberry Ink #3A2432 */
-    --color-mineral: #B85C45;    /* Burnished Copper #B85C45 */
-    --color-sage: #718A78;       /* Lichen Green #718A78 */
-    --color-clay: #B85C45;       /* Burnished Copper #B85C45 */
-    --color-parchment: #F5F1E8;  /* Warm Porcelain Background #F5F1E8 */
-    --color-bone: #FCFAF5;       /* Soft White Surface #FCFAF5 */
-    --color-charcoal: #5F6661;   /* Stone Grey #5F6661 */
-    --color-mist: #D8D4CA;       /* Warm Mist #D8D4CA */
+    --color-ink: #2B2E33;        /* Primary Text — Deep Slate #2B2E33 */
+    --color-slate: #2F4858;      /* Secondary Accent — Deep Teal-Slate #2F4858 */
+    --color-mineral: #C89B3C;    /* Primary CTA — Ochre #C89B3C */
+    --color-sage: #6B7F52;       /* Verified/Success — Muted Olive #6B7F52 */
+    --color-clay: #C89B3C;       /* Primary CTA — Ochre #C89B3C */
+    --color-parchment: #F5F2EC;  /* Background — Warm Stone #F5F2EC */
+    --color-bone: #FFFFFF;       /* Surface/Cards — Clean White #FFFFFF */
+    --color-charcoal: #8B8479;   /* Muted Text/Metadata — Stone Grey #8B8479 */
+    --color-mist: #DCD6C9;       /* Subtle Borders — Warm Stone Border #DCD6C9 */
   }
 
   body {
@@ -35,20 +35,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F1E8;
+  background: #F5F2EC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #718A78;
+  background: #2F4858;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B85C45;
+  background: #C89B3C;
 }
 
 /* Focused UI outlines */
 *:focus-visible {
-  outline: 2px solid #B85C45;
+  outline: 2px solid #C89B3C;
   outline-offset: 2px;
 }
