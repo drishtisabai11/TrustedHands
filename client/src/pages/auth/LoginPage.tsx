@@ -7,10 +7,11 @@ import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
 import { Alert } from '../../components/ui/FeedbackComponents';
 import { useAuth } from '../../context/AuthContext';
+import { getDashboardRoute } from '../../utils/routeUtils';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 
 export const LoginPage: React.FC = () => {
-  const { login, returnUrl, setReturnUrl, isAuthenticated } = useAuth();
+  const { user, login, returnUrl, setReturnUrl, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -20,16 +21,12 @@ export const LoginPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (isAuthenticated) {
-      if (returnUrl) {
-        const dest = returnUrl;
-        setReturnUrl(null);
-        navigate(dest);
-      } else {
-        navigate('/');
-      }
+    if (isAuthenticated && user) {
+      const dest = returnUrl || getDashboardRoute(user.role);
+      setReturnUrl(null);
+      navigate(dest, { replace: true });
     }
-  }, [isAuthenticated, returnUrl, navigate, setReturnUrl]);
+  }, [isAuthenticated, user, returnUrl, navigate, setReturnUrl]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,14 +34,10 @@ export const LoginPage: React.FC = () => {
     setIsLoading(true);
 
     try {
-      await login(email, password);
-      if (returnUrl) {
-        const dest = returnUrl;
-        setReturnUrl(null);
-        navigate(dest);
-      } else {
-        navigate('/');
-      }
+      const authUser = await login(email, password);
+      const dest = returnUrl || getDashboardRoute(authUser.role);
+      setReturnUrl(null);
+      navigate(dest, { replace: true });
     } catch (err: any) {
       setError(err.message || 'Sign in failed. Please check your credentials.');
     } finally {
@@ -58,7 +51,7 @@ export const LoginPage: React.FC = () => {
 
       <main className="flex-1 flex items-center justify-center py-16 px-4">
         <Container size="narrow" className="max-w-md w-full">
-          <div className="bg-bone p-8 rounded-lg border border-mist shadow-card space-y-6">
+          <div className="bg-bone p-8 rounded-2xl border border-mist shadow-card space-y-6">
             <div className="text-center space-y-1">
               <span className="text-xs font-semibold uppercase tracking-widest text-mineral block">
                 Account Sign In
@@ -102,11 +95,20 @@ export const LoginPage: React.FC = () => {
               </Button>
             </form>
 
-            <div className="pt-4 border-t border-mist text-center text-xs text-charcoal-subtle">
-              Don't have an account?{' '}
-              <RouterLink to="/auth/register" className="font-bold text-mineral hover:underline">
-                Create Account
-              </RouterLink>
+            <div className="pt-4 border-t border-mist space-y-2 text-center text-xs text-charcoal-subtle">
+              <div>
+                Don't have an account?{' '}
+                <RouterLink to="/signup/customer" className="font-bold text-brand hover:underline">
+                  Create Account
+                </RouterLink>
+              </div>
+
+              <div className="pt-1 text-[11px] text-charcoal-muted">
+                Are you a service professional?{' '}
+                <RouterLink to="/signup/provider" className="font-bold text-slate hover:underline">
+                  Become a Provider
+                </RouterLink>
+              </div>
             </div>
 
             <div className="p-3 bg-parchment rounded border border-mist/60 flex items-center gap-2 text-[11px] text-charcoal-muted">
@@ -121,3 +123,5 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
+
+export default LoginPage;

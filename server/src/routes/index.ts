@@ -10,6 +10,8 @@ import reviewRoutes from './reviewRoutes';
 import favoriteRoutes from './favoriteRoutes';
 import notificationRoutes from './notificationRoutes';
 import adminRoutes from './adminRoutes';
+import customerRoutes from './customerRoutes';
+import providerDashboardRoutes from './providerDashboardRoutes';
 
 const router = Router();
 
@@ -34,5 +36,7 @@ router.use('/reviews', reviewRoutes);
 router.use('/favorites', favoriteRoutes);
 router.use('/notifications', notificationRoutes);
 router.use('/admin', adminRoutes);
+router.use('/customer', customerRoutes);
+router.use('/provider', providerDashboardRoutes);
 
 export default router;

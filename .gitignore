@@ -24,6 +24,10 @@ logs/
 .DS_Store
 Thumbs.db
 
-# Temp / Cache
+# Temp / Cache / Archives
 .cache/
 .vite/
+M1.zip
+M1 ss/
+M1/
+M2/

@@ -4,20 +4,20 @@
 
 @layer base {
   :root {
-    --color-ink: #17211D;
-    --color-slate: #6E1A37;      /* Deep Burgundy / Wine #6E1A37 */
-    --color-mineral: #AE2448;    /* Crimson Red #AE2448 */
-    --color-sage: #72BAA9;       /* Muted Seafoam / Teal #72BAA9 */
-    --color-clay: #AE2448;       /* Crimson Red #AE2448 */
-    --color-parchment: #D5E7B5;  /* Soft Mint Surface #D5E7B5 */
-    --color-bone: #FBF9F4;       /* Bone White #FBF9F4 */
-    --color-charcoal: #292E2B;
-    --color-mist: #D9DED6;
+    --color-ink: #202624;        /* Near Black #202624 */
+    --color-slate: #3A2432;      /* Mulberry Ink #3A2432 */
+    --color-mineral: #B85C45;    /* Burnished Copper #B85C45 */
+    --color-sage: #718A78;       /* Lichen Green #718A78 */
+    --color-clay: #B85C45;       /* Burnished Copper #B85C45 */
+    --color-parchment: #F5F1E8;  /* Warm Porcelain Background #F5F1E8 */
+    --color-bone: #FCFAF5;       /* Soft White Surface #FCFAF5 */
+    --color-charcoal: #5F6661;   /* Stone Grey #5F6661 */
+    --color-mist: #D8D4CA;       /* Warm Mist #D8D4CA */
   }
 
   body {
     background-color: var(--color-parchment);
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -35,20 +35,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #D5E7B5;
+  background: #F5F1E8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #72BAA9;
+  background: #718A78;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #AE2448;
+  background: #B85C45;
 }
 
 /* Focused UI outlines */
 *:focus-visible {
-  outline: 2px solid #AE2448;
+  outline: 2px solid #B85C45;
   outline-offset: 2px;
 }

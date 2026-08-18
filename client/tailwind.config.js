@@ -7,84 +7,95 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand Crimson Red #AE2448
+        // 1. Burnished Copper #B85C45 — Primary Brand Accent & CTAs
         brand: {
-          DEFAULT: '#AE2448',
-          light: '#C94364',
-          dark: '#74152F',
-          hover: '#8F1D3B',
+          DEFAULT: '#B85C45',
+          light: '#D27861',
+          dark: '#96432E',
+          hover: '#A14E38',
         },
-        // Mineral & Clay alias mapped to Primary Brand Crimson Red #AE2448
         mineral: {
-          DEFAULT: '#AE2448',
-          light: '#C94364',
-          dark: '#74152F',
-          hover: '#8F1D3B',
+          DEFAULT: '#B85C45',
+          light: '#D27861',
+          dark: '#96432E',
+          hover: '#A14E38',
         },
         clay: {
-          DEFAULT: '#AE2448',
-          light: '#C94364',
-          dark: '#74152F',
+          DEFAULT: '#B85C45',
+          light: '#D27861',
+          dark: '#96432E',
         },
-        // Deep Burgundy / Wine #6E1A37
+        // 2. Mulberry Ink #3A2432 — Deep Brand Accent & Headings
         slate: {
-          DEFAULT: '#6E1A37',
-          light: '#892A4B',
-          dark: '#521027',
+          DEFAULT: '#3A2432',
+          light: '#54384A',
+          dark: '#251520',
         },
         wine: {
-          DEFAULT: '#6E1A37',
-          light: '#892A4B',
-          dark: '#521027',
+          DEFAULT: '#3A2432',
+          light: '#54384A',
+          dark: '#251520',
         },
-        // Muted Seafoam / Teal #72BAA9
+        // 3. Lichen Green #718A78 — Secondary Accent & Verification Badges
         sage: {
-          DEFAULT: '#72BAA9',
-          light: '#95D1C3',
-          dark: '#478A7B',
-          subtle: '#EBF7F4',
+          DEFAULT: '#718A78',
+          light: '#8FA696',
+          dark: '#566E5D',
+          subtle: '#F0F4F1',
         },
         secondary: {
-          DEFAULT: '#72BAA9',
-          light: '#95D1C3',
-          dark: '#478A7B',
-          subtle: '#EBF7F4',
+          DEFAULT: '#718A78',
+          light: '#8FA696',
+          dark: '#566E5D',
+          subtle: '#F0F4F1',
         },
         teal: {
-          DEFAULT: '#72BAA9',
-          light: '#95D1C3',
-          dark: '#478A7B',
+          DEFAULT: '#718A78',
+          light: '#8FA696',
+          dark: '#566E5D',
         },
-        // Soft Mint / Light Surface #D5E7B5
-        parchment: {
-          DEFAULT: '#D5E7B5',
-          light: '#E6F2CD',
-          dark: '#BECF9D',
+        // 4. Pale Celadon #DCE5D8 — Light Brand Accent & Highlights
+        celadon: {
+          DEFAULT: '#DCE5D8',
+          light: '#EAF0E7',
+          dark: '#C5D2C0',
         },
         mint: {
-          DEFAULT: '#D5E7B5',
-          light: '#E6F2CD',
-          dark: '#BECF9D',
+          DEFAULT: '#DCE5D8',
+          light: '#EAF0E7',
+          dark: '#C5D2C0',
         },
-        // Preserved text & surface contrast neutrals
+        // 5. Warm Porcelain #F5F1E8 — Primary Page Background
+        parchment: {
+          DEFAULT: '#F5F1E8',
+          light: '#FAF8F3',
+          dark: '#E8E2D5',
+        },
+        background: {
+          DEFAULT: '#F5F1E8',
+        },
+        // 6. Near Black #202624 — Primary Text
         ink: {
-          DEFAULT: '#17211D',
-          light: '#23302B',
-          dark: '#0E1513',
+          DEFAULT: '#202624',
+          light: '#2E3634',
+          dark: '#131716',
         },
+        // 7. Soft White #FCFAF5 — Card Surface & Modals
         bone: {
-          DEFAULT: '#FBF9F4',
-          subtle: '#F6F3EB',
+          DEFAULT: '#FCFAF5',
+          subtle: '#F8F5EE',
         },
+        // 8. Stone Grey #5F6661 — Secondary & Muted Typography
         charcoal: {
-          DEFAULT: '#292E2B',
-          muted: '#525B56',
-          subtle: '#7A857F',
+          DEFAULT: '#5F6661',
+          muted: '#757D77',
+          subtle: '#919994',
         },
+        // 9. Warm Mist #D8D4CA — Subtle Borders & Dividers
         mist: {
-          DEFAULT: '#D9DED6',
-          dark: '#C3CAC0',
-          light: '#E8ECE6',
+          DEFAULT: '#D8D4CA',
+          dark: '#C3BEB2',
+          light: '#EBE7E0',
         },
       },
       fontFamily: {

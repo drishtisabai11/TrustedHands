@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, LogOut, LayoutDashboard } from 'lucide-react';
 import Button from '../ui/Button';
+import { useAuth } from '../../context/AuthContext';
+import { getDashboardRoute } from '../../utils/routeUtils';
+import { Logo } from '../ui/Logo';
 
 export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [quickQuery, setQuickQuery] = useState('');
+  
+  const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleQuickSearch = (e: React.FormEvent) => {
@@ -17,29 +22,15 @@ export const Header: React.FC = () => {
     }
   };
 
+  const dashboardRoute = getDashboardRoute(user?.role);
+
   return (
     <>
       <header className="sticky top-0 z-40 bg-parchment/95 backdrop-blur-md border-b border-mist/80 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Left: Brand Logo & Wordmark */}
-          <RouterLink to="/" className="flex items-center gap-3 group focus-visible:outline-none shrink-0">
-            <div className="w-10 h-10 rounded-md bg-ink text-parchment flex items-center justify-center border border-slate shadow-subtle group-hover:bg-slate transition-colors">
-              <svg width="22" height="22" viewBox="0 0 64 64" fill="none">
-                <path d="M22 44V26C22 21.5817 25.5817 18 30 18C34.4183 18 38 21.5817 38 26V44" stroke="#AE2448" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M30 44V34C30 31.7909 31.7909 30 34 30C36.2091 30 38 31.7909 38 34V44" stroke="#72BAA9" strokeWidth="4" strokeLinecap="round"/>
-                <circle cx="42" cy="22" r="3" fill="#AE2448"/>
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl text-ink tracking-tight leading-none">
-                Trusted Hands
-              </span>
-              <span className="text-[10px] font-sans font-semibold uppercase tracking-widest text-mineral mt-1">
-                Verified Local Services
-              </span>
-            </div>
-          </RouterLink>
+          <Logo size="md" />
 
           {/* Center: Main Navigation */}
           <nav className="hidden lg:flex items-center gap-8 text-sm font-sans font-medium text-charcoal">
@@ -64,21 +55,43 @@ export const Header: React.FC = () => {
               <span>Search services...</span>
             </button>
 
-            <RouterLink to="/how-it-works#provider" className="text-xs font-semibold text-charcoal-muted hover:text-ink transition-colors px-2">
-              Become a Provider
-            </RouterLink>
+            {isAuthenticated && user ? (
+              <div className="flex items-center space-x-3">
+                <RouterLink to={dashboardRoute}>
+                  <Button variant="cta" size="sm" className="font-semibold text-xs flex items-center gap-1.5">
+                    <LayoutDashboard className="w-3.5 h-3.5" />
+                    <span>{user.role === 'PROVIDER' ? 'Provider Dashboard' : 'My Dashboard'}</span>
+                  </Button>
+                </RouterLink>
 
-            <RouterLink to="/contact">
-              <Button variant="text" size="sm" className="text-xs">
-                Sign In
-              </Button>
-            </RouterLink>
+                <button
+                  onClick={logout}
+                  className="p-2 text-charcoal-muted hover:text-brand transition-colors rounded-md border border-mist bg-bone flex items-center gap-1 text-xs"
+                  title="Sign Out"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span>Logout</span>
+                </button>
+              </div>
+            ) : (
+              <>
+                <RouterLink to="/signup/provider" className="text-xs font-semibold text-charcoal-muted hover:text-ink transition-colors px-2">
+                  Become a Provider
+                </RouterLink>
 
-            <RouterLink to="/providers">
-              <Button variant="cta" size="sm" className="font-semibold text-xs">
-                Find a Professional
-              </Button>
-            </RouterLink>
+                <RouterLink to="/auth/login">
+                  <Button variant="text" size="sm" className="text-xs">
+                    Login
+                  </Button>
+                </RouterLink>
+
+                <RouterLink to="/signup/customer">
+                  <Button variant="cta" size="sm" className="font-semibold text-xs">
+                    Sign Up
+                  </Button>
+                </RouterLink>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Trigger */}
@@ -115,38 +128,37 @@ export const Header: React.FC = () => {
             >
               About
             </RouterLink>
-            <RouterLink 
-              to="/faq" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm font-semibold text-charcoal hover:text-ink py-2 border-b border-mist/50"
-            >
-              FAQ
-            </RouterLink>
-            <RouterLink 
-              to="/contact" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-sm font-semibold text-charcoal hover:text-ink py-2 border-b border-mist/50"
-            >
-              Contact Us
-            </RouterLink>
             
-            <div className="flex flex-col gap-2.5 pt-3">
-              <RouterLink to="/how-it-works#provider" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="outline" fullWidth size="md">
-                  Become a Provider
+            {isAuthenticated && user ? (
+              <div className="flex flex-col gap-2.5 pt-3">
+                <RouterLink to={dashboardRoute} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="cta" fullWidth size="md">
+                    {user.role === 'PROVIDER' ? 'Provider Dashboard' : 'My Dashboard'}
+                  </Button>
+                </RouterLink>
+                <Button variant="outline" fullWidth size="md" onClick={() => { setIsMobileMenuOpen(false); logout(); }}>
+                  Logout ({user.name})
                 </Button>
-              </RouterLink>
-              <RouterLink to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="secondary" fullWidth size="md">
-                  Sign In
-                </Button>
-              </RouterLink>
-              <RouterLink to="/providers" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="cta" fullWidth size="md">
-                  Find a Professional
-                </Button>
-              </RouterLink>
-            </div>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2.5 pt-3">
+                <RouterLink to="/signup/provider" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="outline" fullWidth size="md">
+                    Become a Service Provider
+                  </Button>
+                </RouterLink>
+                <RouterLink to="/auth/login" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="secondary" fullWidth size="md">
+                    Login
+                  </Button>
+                </RouterLink>
+                <RouterLink to="/signup/customer" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="cta" fullWidth size="md">
+                    Sign Up
+                  </Button>
+                </RouterLink>
+              </div>
+            )}
           </div>
         )}
       </header>
@@ -182,3 +194,5 @@ export const Header: React.FC = () => {
     </>
   );
 };
+
+export default Header;

@@ -7,6 +7,9 @@ export type VerificationStatus = 'UNVERIFIED' | 'SUBMITTED' | 'VERIFIED' | 'REJE
 export type BookingStatus = 
   | 'PENDING' 
   | 'CONFIRMED' 
+  | 'PROVIDER_ACCEPTED'
+  | 'PROVIDER_ON_THE_WAY'
+  | 'SERVICE_STARTED'
   | 'IN_PROGRESS' 
   | 'COMPLETED' 
   | 'CANCELLED' 
@@ -71,14 +74,27 @@ export interface TimeSlot {
 export interface DayAvailability {
   day: 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
   isAvailable: boolean;
-  slots: TimeSlot[];
+  slots?: TimeSlot[];
+  startTime?: string;
+  endTime?: string;
 }
 
 export interface Availability {
-  id: string;
-  providerId: string;
-  schedule: DayAvailability[];
+  id?: string;
+  providerId?: string;
+  isOnline?: boolean;
+  schedule?: DayAvailability[];
+  weeklySchedule?: DayAvailability[];
   blackoutDates: string[]; // ISO Date strings
+}
+
+export interface PortfolioItem {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  category?: string;
+  createdAt?: string;
 }
 
 export interface Provider {
@@ -98,7 +114,7 @@ export interface Provider {
   isIdentityVerified: boolean;
   isBackgroundChecked: boolean;
   isInsured: boolean;
-  documents: ProviderDocument[];
+  documents?: ProviderDocument[];
   serviceAreaRadiusKm: number;
   location: {
     city: string;
@@ -108,6 +124,9 @@ export interface Provider {
   };
   availability?: Availability;
   badges: string[];
+  languages?: string[];
+  skills?: string[];
+  portfolio?: PortfolioItem[];
 }
 
 export interface Category {
@@ -139,11 +158,11 @@ export interface Booking {
   id: string;
   bookingNumber: string;
   customerId: string;
-  customer?: Customer;
+  customer?: Customer | User | any;
   providerId: string;
-  provider?: Provider;
+  provider?: Provider | any;
   serviceId: string;
-  service?: Service;
+  service?: Service | any;
   status: BookingStatus;
   scheduledDate: string; // YYYY-MM-DD
   scheduledTimeSlot: string; // e.g. "10:00 AM - 12:00 PM"
@@ -185,6 +204,11 @@ export interface Transaction {
   createdAt: string;
 }
 
+export interface ReviewResponse {
+  comment: string;
+  createdAt: string;
+}
+
 export interface Review {
   id: string;
   bookingId: string;
@@ -196,6 +220,7 @@ export interface Review {
   comment: string;
   workCategory: string;
   isVerifiedPurchase: boolean;
+  providerResponse?: ReviewResponse;
   createdAt: string;
 }
 

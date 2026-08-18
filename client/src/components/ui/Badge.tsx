@@ -3,7 +3,7 @@ import { ShieldCheck, CheckCircle2, Award } from 'lucide-react';
 
 export interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'ink' | 'slate' | 'mineral' | 'sage' | 'clay' | 'parchment' | 'outline';
+  variant?: 'ink' | 'slate' | 'mineral' | 'sage' | 'clay' | 'parchment' | 'outline' | 'verified' | 'primary' | 'secondary';
   size?: 'sm' | 'md';
   icon?: React.ReactNode;
   className?: string;
@@ -29,6 +29,9 @@ export const Badge: React.FC<BadgeProps> = ({
     clay: "bg-clay/10 text-clay-dark border border-clay/30",
     parchment: "bg-bone text-charcoal border border-mist",
     outline: "bg-transparent text-charcoal-muted border border-mist",
+    verified: "bg-sage-subtle text-slate border border-sage/40",
+    primary: "bg-mineral text-white border border-transparent",
+    secondary: "bg-slate text-parchment border border-transparent",
   };
 
   return (

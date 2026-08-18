@@ -5,7 +5,7 @@ export interface IBooking extends Document {
   customer: mongoose.Types.ObjectId;
   provider: mongoose.Types.ObjectId;
   service: mongoose.Types.ObjectId;
-  status: 'PENDING' | 'CONFIRMED' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED' | 'DISPUTED';
+  status: 'PENDING' | 'CONFIRMED' | 'PROVIDER_ACCEPTED' | 'PROVIDER_ON_THE_WAY' | 'SERVICE_STARTED' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED' | 'DISPUTED';
   scheduledDate: string; // YYYY-MM-DD
   scheduledTimeSlot: string;
   serviceAddress: {
@@ -23,6 +23,8 @@ export interface IBooking extends Document {
   completedAt?: Date;
   cancelledAt?: Date;
   cancellationReason?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const BookingSchema = new Schema<IBooking>(
@@ -33,7 +35,7 @@ const BookingSchema = new Schema<IBooking>(
     service: { type: Schema.Types.ObjectId, ref: 'Service', required: true },
     status: {
       type: String,
-      enum: ['PENDING', 'CONFIRMED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED', 'DISPUTED'],
+      enum: ['PENDING', 'CONFIRMED', 'PROVIDER_ACCEPTED', 'PROVIDER_ON_THE_WAY', 'SERVICE_STARTED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED', 'DISPUTED'],
       default: 'PENDING',
     },
     scheduledDate: { type: String, required: true },

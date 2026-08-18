@@ -6,6 +6,7 @@ import { Customer } from '../models/Customer';
 import { Provider } from '../models/Provider';
 import { env } from '../config/env';
 import { AuthenticatedRequest } from '../middleware/authMiddleware';
+import { OFFICIAL_CATEGORIES, VALID_CATEGORY_NAMES, VALID_CATEGORY_SLUGS } from '../constants/categories';
 
 const generateToken = (userId: string, role: string): string => {
   return jwt.sign({ id: userId, role }, env.JWT_SECRET, {
@@ -60,7 +61,7 @@ export const registerCustomer = async (req: Request, res: Response): Promise<voi
 
 export const registerProvider = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password, name, phone, headline, bio, city, state, hourlyRate } = req.body;
+    const { email, password, name, phone, headline, bio, city, state, hourlyRate, category } = req.body;
 
     if (!email || !password || !name || !headline || !city || !state || !hourlyRate) {
       res.status(400).json({ 
@@ -68,6 +69,17 @@ export const registerProvider = async (req: Request, res: Response): Promise<voi
         message: 'Email, password, name, headline, city, state, and hourly rate are required.' 
       });
       return;
+    }
+
+    if (category) {
+      const isValid = VALID_CATEGORY_NAMES.includes(category) || VALID_CATEGORY_SLUGS.includes(category);
+      if (!isValid) {
+        res.status(400).json({
+          success: false,
+          message: `Invalid service category '${category}'. Must be one of the 8 official marketplace categories.`,
+        });
+        return;
+      }
     }
 
     const existingUser = await User.findOne({ email: email.toLowerCase() });

@@ -43,6 +43,10 @@ export interface IReview extends Document {
   comment: string;
   workCategory: string;
   isVerifiedPurchase: boolean;
+  providerResponse?: {
+    comment: string;
+    createdAt: Date;
+  };
 }
 
 const ReviewSchema = new Schema<IReview>(
@@ -54,6 +58,10 @@ const ReviewSchema = new Schema<IReview>(
     comment: { type: String, required: true },
     workCategory: { type: String, required: true },
     isVerifiedPurchase: { type: Boolean, default: true },
+    providerResponse: {
+      comment: { type: String },
+      createdAt: { type: Date },
+    },
   },
   { timestamps: true }
 );

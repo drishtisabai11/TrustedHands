@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { ShieldCheck, HeartHandshake, Award } from 'lucide-react';
+import { Logo } from '../ui/Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -49,11 +50,8 @@ export const Footer: React.FC = () => {
         {/* Footer Navigation Columns */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12">
           <div className="col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded bg-mineral text-white flex items-center justify-center font-serif text-sm">
-                TH
-              </div>
-              <span className="font-serif text-xl text-white tracking-tight">Trusted Hands</span>
+            <div className="mb-4">
+              <Logo size="lg" onDark />
             </div>
             <p className="text-xs text-sage-subtle leading-relaxed max-w-sm mb-4">
               Trusted professionals for the jobs that matter — from everyday home services to personal and professional help.

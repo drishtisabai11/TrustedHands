@@ -23,6 +23,26 @@ export interface IProvider extends Document {
     coordinates: [number, number]; // [lng, lat]
   };
   badges: string[];
+  languages?: string[];
+  skills?: string[];
+  portfolio?: Array<{
+    id: string;
+    title: string;
+    description: string;
+    imageUrl: string;
+    category?: string;
+    createdAt?: Date;
+  }>;
+  availability?: {
+    isOnline: boolean;
+    weeklySchedule: Array<{
+      day: string;
+      isAvailable: boolean;
+      startTime: string;
+      endTime: string;
+    }>;
+    blackoutDates: string[];
+  };
 }
 
 const ProviderSchema = new Schema<IProvider>(
@@ -53,6 +73,30 @@ const ProviderSchema = new Schema<IProvider>(
       coordinates: [Number],
     },
     badges: [{ type: String }],
+    languages: [{ type: String }],
+    skills: [{ type: String }],
+    portfolio: [
+      {
+        id: { type: String, required: true },
+        title: { type: String, required: true },
+        description: { type: String, required: true },
+        imageUrl: { type: String, required: true },
+        category: { type: String },
+        createdAt: { type: Date, default: Date.now },
+      },
+    ],
+    availability: {
+      isOnline: { type: Boolean, default: true },
+      weeklySchedule: [
+        {
+          day: { type: String },
+          isAvailable: { type: Boolean, default: true },
+          startTime: { type: String, default: '09:00' },
+          endTime: { type: String, default: '18:00' },
+        },
+      ],
+      blackoutDates: [{ type: String }],
+    },
   },
   { timestamps: true }
 );

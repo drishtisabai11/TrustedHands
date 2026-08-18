@@ -7,6 +7,7 @@ export interface RatingProps {
   reviewCount?: number;
   size?: 'sm' | 'md' | 'lg';
   interactive?: boolean;
+  readOnly?: boolean;
   onChange?: (rating: number) => void;
   showValue?: boolean;
   className?: string;
@@ -18,10 +19,12 @@ export const Rating: React.FC<RatingProps> = ({
   reviewCount,
   size = 'md',
   interactive = false,
+  readOnly,
   onChange,
   showValue = true,
   className = '',
 }) => {
+  const isInteractive = readOnly ? false : interactive;
   const [hoverValue, setHoverValue] = React.useState<number | null>(null);
 
   const starSizes = {
@@ -44,11 +47,11 @@ export const Rating: React.FC<RatingProps> = ({
             <button
               key={index}
               type="button"
-              disabled={!interactive}
-              onClick={() => interactive && onChange?.(starNumber)}
-              onMouseEnter={() => interactive && setHoverValue(starNumber)}
-              onMouseLeave={() => interactive && setHoverValue(null)}
-              className={`${interactive ? 'cursor-pointer hover:scale-110' : 'cursor-default'} transition-transform p-0.5`}
+              disabled={!isInteractive}
+              onClick={() => isInteractive && onChange?.(starNumber)}
+              onMouseEnter={() => isInteractive && setHoverValue(starNumber)}
+              onMouseLeave={() => isInteractive && setHoverValue(null)}
+              className={`${isInteractive ? 'cursor-pointer hover:scale-110' : 'cursor-default'} transition-transform p-0.5`}
               aria-label={`Rate ${starNumber} out of ${max}`}
             >
               <Star
