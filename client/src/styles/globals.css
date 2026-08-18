@@ -4,20 +4,20 @@
 
 @layer base {
   :root {
-    --color-ink: #2B2E33;        /* Primary Text — Deep Slate #2B2E33 */
-    --color-slate: #2F4858;      /* Secondary Accent — Deep Teal-Slate #2F4858 */
-    --color-mineral: #C89B3C;    /* Primary CTA — Ochre #C89B3C */
-    --color-sage: #6B7F52;       /* Verified/Success — Muted Olive #6B7F52 */
-    --color-clay: #C89B3C;       /* Primary CTA — Ochre #C89B3C */
-    --color-parchment: #F5F2EC;  /* Background — Warm Stone #F5F2EC */
-    --color-bone: #FFFFFF;       /* Surface/Cards — Clean White #FFFFFF */
-    --color-charcoal: #8B8479;   /* Muted Text/Metadata — Stone Grey #8B8479 */
-    --color-mist: #DCD6C9;       /* Subtle Borders — Warm Stone Border #DCD6C9 */
+    --color-ink: #17211D;
+    --color-slate: #6E1A37;      /* Deep Burgundy / Wine #6E1A37 */
+    --color-mineral: #AE2448;    /* Crimson Red #AE2448 */
+    --color-sage: #72BAA9;       /* Muted Seafoam / Teal #72BAA9 */
+    --color-clay: #AE2448;       /* Crimson Red #AE2448 */
+    --color-parchment: #D5E7B5;  /* Soft Mint Surface #D5E7B5 */
+    --color-bone: #FBF9F4;       /* Bone White #FBF9F4 */
+    --color-charcoal: #292E2B;
+    --color-mist: #D9DED6;
   }
 
   body {
     background-color: var(--color-parchment);
-    color: var(--color-ink);
+    color: var(--color-charcoal);
     font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -35,20 +35,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F2EC;
+  background: #D5E7B5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2F4858;
+  background: #72BAA9;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C89B3C;
+  background: #AE2448;
 }
 
 /* Focused UI outlines */
 *:focus-visible {
-  outline: 2px solid #C89B3C;
+  outline: 2px solid #AE2448;
   outline-offset: 2px;
 }

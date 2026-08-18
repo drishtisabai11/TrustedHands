@@ -7,95 +7,89 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 1. Ochre / Mustard #C89B3C — Primary Brand Accent & CTAs
+        // Primary Brand Crimson Red #AE2448
         brand: {
-          DEFAULT: '#C89B3C',
-          light: '#D9AD4E',
-          dark: '#9F7720',
-          hover: '#B78B2C',
+          DEFAULT: '#AE2448',
+          light: '#C94364',
+          dark: '#74152F',
+          hover: '#8F1D3B',
         },
+        // Mineral & Clay alias mapped to Primary Brand Crimson Red #AE2448
         mineral: {
-          DEFAULT: '#C89B3C',
-          light: '#D9AD4E',
-          dark: '#9F7720',
-          hover: '#B78B2C',
+          DEFAULT: '#AE2448',
+          light: '#C94364',
+          dark: '#74152F',
+          hover: '#8F1D3B',
         },
         clay: {
-          DEFAULT: '#C89B3C',
-          light: '#D9AD4E',
-          dark: '#9F7720',
+          DEFAULT: '#AE2448',
+          light: '#C94364',
+          dark: '#74152F',
         },
-        // 2. Deep Teal-Slate #2F4858 — Secondary Brand Color & Dark Sections
+        // Deep Burgundy / Wine #6E1A37
         slate: {
-          DEFAULT: '#2F4858',
-          light: '#425F72',
-          dark: '#1E313D',
+          DEFAULT: '#6E1A37',
+          light: '#892A4B',
+          dark: '#521027',
         },
         wine: {
-          DEFAULT: '#2F4858',
-          light: '#425F72',
-          dark: '#1E313D',
+          DEFAULT: '#6E1A37',
+          light: '#892A4B',
+          dark: '#521027',
         },
-        // 3. Muted Olive #6B7F52 — Verified & Trust Badges
+        // Muted Seafoam / Teal #72BAA9
         sage: {
-          DEFAULT: '#6B7F52',
-          light: '#849A6A',
-          dark: '#51623D',
-          subtle: '#F3F6F0',
+          DEFAULT: '#72BAA9',
+          light: '#95D1C3',
+          dark: '#478A7B',
+          subtle: '#EBF7F4',
         },
         secondary: {
-          DEFAULT: '#6B7F52',
-          light: '#849A6A',
-          dark: '#51623D',
-          subtle: '#F3F6F0',
+          DEFAULT: '#72BAA9',
+          light: '#95D1C3',
+          dark: '#478A7B',
+          subtle: '#EBF7F4',
         },
         teal: {
-          DEFAULT: '#6B7F52',
-          light: '#849A6A',
-          dark: '#51623D',
+          DEFAULT: '#72BAA9',
+          light: '#95D1C3',
+          dark: '#478A7B',
         },
-        // 4. Warm Stone Panel #EDE8DE — Secondary Surface & Visual Grouping
-        celadon: {
-          DEFAULT: '#EDE8DE',
-          light: '#F5F2EC',
-          dark: '#DFD9CC',
+        // Soft Mint / Light Surface #D5E7B5
+        parchment: {
+          DEFAULT: '#D5E7B5',
+          light: '#E6F2CD',
+          dark: '#BECF9D',
         },
         mint: {
-          DEFAULT: '#EDE8DE',
-          light: '#F5F2EC',
-          dark: '#DFD9CC',
+          DEFAULT: '#D5E7B5',
+          light: '#E6F2CD',
+          dark: '#BECF9D',
         },
-        // 5. Warm Stone #F5F2EC — Primary Website Background
-        parchment: {
-          DEFAULT: '#F5F2EC',
-          light: '#FAF8F4',
-          dark: '#EDE8DE',
+        celadon: {
+          DEFAULT: '#D5E7B5',
+          light: '#E6F2CD',
+          dark: '#BECF9D',
         },
-        background: {
-          DEFAULT: '#F5F2EC',
-        },
-        // 6. Deep Slate #2B2E33 — Primary Text
+        // Preserved text & surface contrast neutrals
         ink: {
-          DEFAULT: '#2B2E33',
-          light: '#3F434A',
-          dark: '#1B1D21',
+          DEFAULT: '#17211D',
+          light: '#23302B',
+          dark: '#0E1513',
         },
-        // 7. Clean White #FFFFFF — Primary Surface & Cards
         bone: {
-          DEFAULT: '#FFFFFF',
-          subtle: '#FAF8F4',
+          DEFAULT: '#FBF9F4',
+          subtle: '#F6F3EB',
         },
-        // 8. Stone Grey #8B8479 — Muted Typography & Metadata
         charcoal: {
-          DEFAULT: '#8B8479',
-          muted: '#A19A8F',
-          subtle: '#B7B0A5',
+          DEFAULT: '#292E2B',
+          muted: '#525B56',
+          subtle: '#7A857F',
         },
-        // 9. Warm Mist / Border #DCD6C9 — Subtle Borders & Dividers
         mist: {
-          DEFAULT: '#DCD6C9',
-          dark: '#C9C2B4',
-          light: '#F4F0E8',
+          DEFAULT: '#D9DED6',
+          dark: '#C3CAC0',
+          light: '#E8ECE6',
         },
       },
       fontFamily: {

@@ -122,83 +122,83 @@ export const DesignSystemShowcase: React.FC = () => {
           {activeTab === 'overview' && (
             <div className="space-y-10">
               <div>
-                <h2 className="text-2xl font-serif text-ink mb-2">Slate & Ochre Color Palette System</h2>
+                <h2 className="text-2xl font-serif text-ink mb-2">Brand Color Palette System</h2>
                 <p className="text-xs text-charcoal-muted max-w-2xl">
-                  Distinctive editorial palette: Warm Stone background (#F5F2EC), Clean White surfaces (#FFFFFF), Warm Stone Panel (#EDE8DE), Deep Slate typography (#2B2E33), Ochre primary CTAs (#C89B3C), Deep Teal-Slate secondary accents (#2F4858), and Muted Olive verification badges (#6B7F52).
+                  Restrained visual balance: Crimson Red (#AE2448) brand accent, Deep Burgundy (#6E1A37) headers/slate surfaces, Muted Seafoam (#72BAA9) trust badges, Soft Mint (#D5E7B5) backdrop, and Deep Ink (#17211D) text.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {/* Deep Slate */}
+                {/* Deep Ink */}
                 <div className="p-4 rounded-md bg-ink text-parchment shadow-subtle border border-slate flex flex-col justify-between h-32">
                   <div>
-                    <span className="font-serif text-lg">Deep Slate</span>
-                    <p className="text-[11px] opacity-80 mt-0.5">Primary Typography</p>
+                    <span className="font-serif text-lg">Deep Ink</span>
+                    <p className="text-[11px] opacity-80 mt-0.5">Primary Headings & Footer</p>
                   </div>
-                  <span className="font-mono text-xs text-sage-light">#2B2E33</span>
+                  <span className="font-mono text-xs text-sage-light">#17211D</span>
                 </div>
 
-                {/* Ochre */}
-                <div className="p-4 rounded-md bg-brand text-white shadow-subtle flex flex-col justify-between h-32">
-                  <div>
-                    <span className="font-serif text-lg">Ochre</span>
-                    <p className="text-[11px] opacity-80 mt-0.5">Primary CTAs & Actions</p>
-                  </div>
-                  <span className="font-mono text-xs text-white/90">#C89B3C</span>
-                </div>
-
-                {/* Deep Teal-Slate */}
+                {/* Deep Burgundy */}
                 <div className="p-4 rounded-md bg-slate text-white shadow-subtle flex flex-col justify-between h-32">
                   <div>
-                    <span className="font-serif text-lg">Teal-Slate</span>
-                    <p className="text-[11px] opacity-80 mt-0.5">Secondary Accents</p>
+                    <span className="font-serif text-lg">Deep Burgundy</span>
+                    <p className="text-[11px] opacity-80 mt-0.5">Dark Secondary Surfaces</p>
                   </div>
-                  <span className="font-mono text-xs text-white/90">#2F4858</span>
+                  <span className="font-mono text-xs text-white/90">#6E1A37</span>
                 </div>
 
-                {/* Muted Olive */}
+                {/* Crimson Red */}
+                <div className="p-4 rounded-md bg-brand text-white shadow-subtle flex flex-col justify-between h-32">
+                  <div>
+                    <span className="font-serif text-lg">Crimson Red</span>
+                    <p className="text-[11px] opacity-80 mt-0.5">Primary Accent & CTAs</p>
+                  </div>
+                  <span className="font-mono text-xs text-white/90">#AE2448</span>
+                </div>
+
+                {/* Muted Seafoam */}
                 <div className="p-4 rounded-md bg-sage text-white shadow-subtle flex flex-col justify-between h-32">
                   <div>
-                    <span className="font-serif text-lg">Muted Olive</span>
-                    <p className="text-[11px] opacity-80 mt-0.5">Trust & Verification</p>
+                    <span className="font-serif text-lg">Muted Seafoam</span>
+                    <p className="text-[11px] opacity-80 mt-0.5">Secondary Actions & Badges</p>
                   </div>
-                  <span className="font-mono text-xs text-white/90">#6B7F52</span>
+                  <span className="font-mono text-xs text-white/90">#72BAA9</span>
                 </div>
 
-                {/* Warm Stone */}
-                <div className="p-4 rounded-md bg-parchment text-ink shadow-subtle border border-mist flex flex-col justify-between h-32">
+                {/* Soft Mint */}
+                <div className="p-4 rounded-md bg-parchment text-charcoal shadow-subtle border border-mist flex flex-col justify-between h-32">
                   <div>
-                    <span className="font-serif text-lg">Warm Stone</span>
-                    <p className="text-[11px] text-charcoal mt-0.5">Main Background</p>
+                    <span className="font-serif text-lg">Soft Mint</span>
+                    <p className="text-[11px] text-charcoal-subtle mt-0.5">Main Page Background</p>
                   </div>
-                  <span className="font-mono text-xs text-charcoal">#F5F2EC</span>
+                  <span className="font-mono text-xs text-charcoal-muted">#D5E7B5</span>
                 </div>
 
-                {/* Clean White */}
-                <div className="p-4 rounded-md bg-bone text-ink shadow-subtle border border-mist flex flex-col justify-between h-32">
+                {/* Bone */}
+                <div className="p-4 rounded-md bg-bone text-charcoal shadow-subtle border border-mist flex flex-col justify-between h-32">
                   <div>
-                    <span className="font-serif text-lg">Clean White</span>
-                    <p className="text-[11px] text-charcoal mt-0.5">Cards & Surfaces</p>
+                    <span className="font-serif text-lg">Bone</span>
+                    <p className="text-[11px] text-charcoal-subtle mt-0.5">Cards & Surfaces</p>
                   </div>
-                  <span className="font-mono text-xs text-charcoal">#FFFFFF</span>
+                  <span className="font-mono text-xs text-charcoal-muted">#FBF9F4</span>
                 </div>
 
-                {/* Warm Panel */}
-                <div className="p-4 rounded-md bg-celadon text-ink shadow-subtle border border-mist flex flex-col justify-between h-32">
-                  <div>
-                    <span className="font-serif text-lg">Warm Panel</span>
-                    <p className="text-[11px] text-charcoal mt-0.5">Secondary Surfaces</p>
-                  </div>
-                  <span className="font-mono text-xs text-charcoal">#EDE8DE</span>
-                </div>
-
-                {/* Stone Grey */}
+                {/* Charcoal */}
                 <div className="p-4 rounded-md bg-charcoal text-parchment shadow-subtle flex flex-col justify-between h-32">
                   <div>
-                    <span className="font-serif text-lg">Stone Grey</span>
-                    <p className="text-[11px] opacity-80 mt-0.5">Muted Text & Borders</p>
+                    <span className="font-serif text-lg">Charcoal</span>
+                    <p className="text-[11px] opacity-80 mt-0.5">Primary Body Text</p>
                   </div>
-                  <span className="font-mono text-xs text-sage-light">#8B8479</span>
+                  <span className="font-mono text-xs text-sage-light">#292E2B</span>
+                </div>
+
+                {/* Mist */}
+                <div className="p-4 rounded-md bg-mist text-charcoal shadow-subtle flex flex-col justify-between h-32">
+                  <div>
+                    <span className="font-serif text-lg">Mist</span>
+                    <p className="text-[11px] text-charcoal-subtle mt-0.5">Subtle Borders</p>
+                  </div>
+                  <span className="font-mono text-xs text-charcoal-muted">#D9DED6</span>
                 </div>
               </div>
 
