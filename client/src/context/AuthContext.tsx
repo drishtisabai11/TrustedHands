@@ -80,6 +80,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const response = await apiClient.post('/auth/login', { email, password }).catch(() => {
         // Intelligently infer mock role from login email if offline/simulation mode
         const cleanEmail = email.toLowerCase();
+        const isAdminEmail = cleanEmail.includes('admin');
         const isProviderEmail =
           cleanEmail.includes('pro') ||
           cleanEmail.includes('provider') ||
@@ -88,14 +89,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           cleanEmail.includes('carpenter') ||
           cleanEmail.includes('rajesh');
 
-        const mockRole = isProviderEmail ? 'PROVIDER' : 'CUSTOMER';
+        const mockRole = isAdminEmail ? 'ADMIN' : isProviderEmail ? 'PROVIDER' : 'CUSTOMER';
 
         return {
           token: `mock_jwt_token_${Date.now()}`,
           user: {
-            id: isProviderEmail ? 'pro-1' : 'usr-cust-mock-1',
+            id: isAdminEmail ? 'admin-1' : isProviderEmail ? 'pro-1' : 'usr-cust-mock-1',
             email,
-            name: email.split('@')[0].replace('.', ' '),
+            name: isAdminEmail ? 'Platform Administrator' : email.split('@')[0].replace('.', ' '),
             role: mockRole,
             status: 'ACTIVE',
             createdAt: new Date().toISOString(),
