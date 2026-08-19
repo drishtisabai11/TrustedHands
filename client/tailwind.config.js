@@ -7,80 +7,79 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Trusted Hands Sapphire & Slate Luxury Palette
-        // Primary Electric Indigo #6366F1
+        // Trusted Hands Original Canonical Palette
+        // Primary / CTA #C89B3C
         brand: {
-          DEFAULT: '#6366F1',
-          light: '#818CF8',
-          dark: '#4338CA',
-          hover: '#4F46E5',
+          DEFAULT: '#C89B3C',
+          light: '#D9B055',
+          dark: '#AA7F27',
+          hover: '#B5882E',
         },
         crimson: {
-          DEFAULT: '#6366F1',
-          light: '#818CF8',
-          dark: '#4338CA',
+          DEFAULT: '#C89B3C',
+          light: '#D9B055',
+          dark: '#AA7F27',
         },
-        // Deep Navy Slate #0F172A
+        // Secondary Accent #2F4858
         burgundy: {
-          DEFAULT: '#0F172A',
-          light: '#1E293B',
-          dark: '#020617',
+          DEFAULT: '#2F4858',
+          light: '#415E72',
+          dark: '#1F313E',
         },
         slate: {
-          DEFAULT: '#0F172A',
-          light: '#1E293B',
-          dark: '#020617',
+          DEFAULT: '#2F4858',
+          light: '#415E72',
+          dark: '#1F313E',
         },
-        // Emerald Verified Success #10B981
+        // Verified / Success #6B7F52
         seafoam: {
-          DEFAULT: '#10B981',
-          light: '#34D399',
-          dark: '#059669',
+          DEFAULT: '#6B7F52',
+          light: '#859C6A',
+          dark: '#52633C',
         },
         sage: {
-          DEFAULT: '#10B981',
-          light: '#34D399',
-          dark: '#059669',
+          DEFAULT: '#6B7F52',
+          light: '#859C6A',
+          dark: '#52633C',
         },
         mint: {
-          DEFAULT: '#10B981',
-          light: '#34D399',
-          dark: '#059669',
+          DEFAULT: '#6B7F52',
+          light: '#859C6A',
+          dark: '#52633C',
         },
-        // Crisp Snow White Background #F8FAFC
+        // Background #F5F2EC
         parchment: {
-          DEFAULT: '#F8FAFC',
-          light: '#FFFFFF',
-          dark: '#F1F5F9',
+          DEFAULT: '#F5F2EC',
+          light: '#FAF8F4',
+          dark: '#EDE8DE',
         },
-        // Pure White Surface #FFFFFF & Secondary Surface #F1F5F9
+        // Surface #FFFFFF & Secondary Surface #EDE8DE
         bone: {
           DEFAULT: '#FFFFFF',
-          subtle: '#F1F5F9',
+          subtle: '#EDE8DE',
         },
-        // Deep Slate Ink Primary Text #0F172A
+        // Primary Text #2B2E33
         ink: {
-          DEFAULT: '#0F172A',
-          light: '#1E293B',
-          dark: '#020617',
+          DEFAULT: '#2B2E33',
+          light: '#3C4047',
+          dark: '#1A1C1F',
         },
-        // Slate Muted Charcoal Text #475569
+        // Muted Text / Borders #8B8479
         charcoal: {
-          DEFAULT: '#0F172A',
-          muted: '#475569',
-          subtle: '#64748B',
+          DEFAULT: '#2B2E33',
+          muted: '#8B8479',
+          subtle: '#A29B90',
         },
-        // Slate 200 Borders & Dividers #E2E8F0
         mist: {
-          DEFAULT: '#E2E8F0',
-          dark: '#CBD5E1',
-          light: '#F1F5F9',
+          DEFAULT: '#8B8479',
+          dark: '#736D63',
+          light: '#EDE8DE',
         },
         mineral: {
-          DEFAULT: '#6366F1',
+          DEFAULT: '#C89B3C',
         },
         clay: {
-          DEFAULT: '#EF4444',
+          DEFAULT: '#C89B3C',
         },
       },
       fontFamily: {
@@ -97,10 +96,10 @@ export default {
         '2xl': '18px',
       },
       boxShadow: {
-        'subtle': '0 1px 3px rgba(15, 23, 42, 0.04)',
-        'card': '0 2px 8px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02)',
-        'elevated': '0 10px 30px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.03)',
-        'modal': '0 24px 48px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(15, 23, 42, 0.06)',
+        'subtle': '0 1px 3px rgba(43, 46, 51, 0.05)',
+        'card': '0 2px 8px rgba(43, 46, 51, 0.04), 0 1px 2px rgba(43, 46, 51, 0.02)',
+        'elevated': '0 10px 30px rgba(47, 72, 88, 0.07), 0 2px 6px rgba(43, 46, 51, 0.03)',
+        'modal': '0 24px 48px rgba(47, 72, 88, 0.14), 0 4px 12px rgba(43, 46, 51, 0.06)',
       },
     },
   },
