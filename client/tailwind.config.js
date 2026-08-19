@@ -7,18 +7,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Trusted Hands TERRACOTTA & FOREST Palette
-        
-        // Primary Brand #A6533C (Refined Terracotta)
+        // STRICT APPROVED 11-COLOR PALETTE ONLY
+        // 1. Warm Linen Background #F4EFE7
+        parchment: {
+          DEFAULT: '#F4EFE7',
+          light: '#F4EFE7',
+          dark: '#F4EFE7',
+        },
+
+        // 2. Soft Ivory Surface #FFFCF7
+        bone: {
+          DEFAULT: '#FFFCF7',
+          subtle: '#EDE8DE',
+        },
+
+        // 3. Secondary Surface #EDE8DE
+        ivorySecondary: '#EDE8DE',
+
+        // 4. Refined Terracotta Primary CTA #A6533C
         brand: {
           DEFAULT: '#A6533C',
-          light: '#B8654E',
+          light: '#A6533C',
           dark: '#71382D',
-          hover: '#8C432F',
+          hover: '#71382D',
         },
         crimson: {
           DEFAULT: '#A6533C',
-          light: '#B8654E',
+          light: '#A6533C',
           dark: '#71382D',
         },
         mineral: {
@@ -28,89 +43,77 @@ export default {
           DEFAULT: '#A6533C',
         },
 
-        // Primary Dark #71382D (Burnt Umber)
+        // 5. Burnt Umber Primary Dark #71382D
         burnt: {
           DEFAULT: '#71382D',
-          light: '#88473A',
-          dark: '#5A2B22',
+          light: '#71382D',
+          dark: '#71382D',
+          hover: '#71382D',
         },
 
-        // Secondary Brand #29483F (Deep Forest)
+        // 6. Deep Forest Secondary Brand #29483F
         burgundy: {
           DEFAULT: '#29483F',
-          light: '#375D52',
-          dark: '#1C322B',
-          hover: '#1E362F',
+          light: '#29483F',
+          dark: '#29483F',
+          hover: '#29483F',
         },
         slate: {
           DEFAULT: '#29483F',
-          light: '#375D52',
-          dark: '#1C322B',
-          hover: '#1E362F',
+          light: '#29483F',
+          dark: '#29483F',
+          hover: '#29483F',
         },
         secondary: {
           DEFAULT: '#29483F',
-          light: '#375D52',
-          dark: '#1C322B',
+          light: '#29483F',
+          dark: '#29483F',
         },
 
-        // Premium Accent #C5A46D (Muted Brass)
+        // 7. Muted Brass Premium Accent #C5A46D
         brass: {
           DEFAULT: '#C5A46D',
-          light: '#D4B886',
-          dark: '#B08E56',
+          light: '#C5A46D',
+          dark: '#C5A46D',
         },
 
-        // Verified / Success #64745A (Sage Olive)
+        // 8. Sage Olive Verified / Success #64745A
         seafoam: {
           DEFAULT: '#64745A',
-          light: '#75876A',
-          dark: '#4E5B46',
-          subtle: '#EBF0E8',
+          light: '#64745A',
+          dark: '#64745A',
+          subtle: '#64745A',
         },
         sage: {
           DEFAULT: '#64745A',
-          light: '#75876A',
-          dark: '#4E5B46',
+          light: '#64745A',
+          dark: '#64745A',
         },
         mint: {
           DEFAULT: '#64745A',
-          light: '#75876A',
-          dark: '#4E5B46',
+          light: '#64745A',
+          dark: '#64745A',
         },
 
-        // Primary Background #F4EFE7 (Warm Linen)
-        parchment: {
-          DEFAULT: '#F4EFE7',
-          light: '#FAF7F2',
-          dark: '#E8E1D5',
-        },
-
-        // Primary Surface #FFFCF7 (Soft Ivory)
-        bone: {
-          DEFAULT: '#FFFCF7',
-          subtle: '#F4EFE7',
-        },
-
-        // Primary Text #242825 (Charcoal Ink)
+        // 9. Charcoal Ink Primary Text #242825
         ink: {
           DEFAULT: '#242825',
-          light: '#363B37',
-          dark: '#151816',
+          light: '#242825',
+          dark: '#242825',
         },
 
-        // Muted Text #706F68 (Warm Grey)
+        // 10. Warm Grey Muted Text #706F68
         charcoal: {
           DEFAULT: '#242825',
           muted: '#706F68',
-          subtle: '#919088',
+          subtle: '#706F68',
         },
 
-        // Border #DDD5C8 (Warm Stone)
+        // 11. Warm Stone Border #DDD5C8
         mist: {
           DEFAULT: '#DDD5C8',
-          dark: '#C9BFB0',
-          light: '#EFE8DC',
+          dark: '#DDD5C8',
+          light: '#DDD5C8',
         },
       },
       fontFamily: {
@@ -130,7 +133,7 @@ export default {
         'subtle': '0 1px 3px rgba(36, 40, 37, 0.04)',
         'card': '0 2px 8px rgba(41, 72, 63, 0.04), 0 1px 2px rgba(36, 40, 37, 0.02)',
         'elevated': '0 10px 30px rgba(41, 72, 63, 0.07), 0 2px 6px rgba(36, 40, 37, 0.03)',
-        'modal': '0 24px 48px rgba(28, 50, 43, 0.14), 0 4px 12px rgba(36, 40, 37, 0.06)',
+        'modal': '0 24px 48px rgba(41, 72, 63, 0.14), 0 4px 12px rgba(36, 40, 37, 0.06)',
       },
     },
   },

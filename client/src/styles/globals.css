@@ -4,16 +4,17 @@
 
 @layer base {
   :root {
-    --color-bg: #F4EFE7;           /* Warm Linen */
-    --color-surface: #FFFCF7;      /* Soft Ivory */
-    --color-primary-text: #242825; /* Charcoal Ink */
-    --color-primary-cta: #A6533C;  /* Refined Terracotta */
-    --color-dark-brand: #71382D;   /* Burnt Umber */
-    --color-secondary-accent: #29483F; /* Deep Forest */
-    --color-brass: #C5A46D;        /* Muted Brass */
-    --color-success: #64745A;      /* Sage Olive */
-    --color-muted: #706F68;        /* Warm Grey */
-    --color-border: #DDD5C8;       /* Warm Stone */
+    --color-bg: #F4EFE7;           /* 1. Warm Linen */
+    --color-surface: #FFFCF7;      /* 2. Soft Ivory */
+    --color-surface-sec: #EDE8DE;  /* 3. Secondary Surface */
+    --color-primary-cta: #A6533C;  /* 4. Refined Terracotta */
+    --color-primary-dark: #71382D; /* 5. Burnt Umber */
+    --color-secondary-accent: #29483F; /* 6. Deep Forest */
+    --color-brass: #C5A46D;        /* 7. Muted Brass */
+    --color-success: #64745A;      /* 8. Sage Olive */
+    --color-primary-text: #242825; /* 9. Charcoal Ink */
+    --color-muted: #706F68;        /* 10. Warm Grey */
+    --color-border: #DDD5C8;       /* 11. Warm Stone */
   }
 
   body {
@@ -29,7 +30,7 @@
   }
 }
 
-/* Explicit Global Color Tokens & Utility Overrides */
+/* Explicit Global Color Utility Overrides - STRICT 11 APPROVED COLORS ONLY */
 .bg-parchment { background-color: #F4EFE7 !important; }
 .bg-bone { background-color: #FFFCF7 !important; }
 .bg-brand { background-color: #A6533C !important; }
@@ -89,5 +90,5 @@
 
 .card-hover-effect:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(41, 72, 63, 0.08), 0 3px 8px rgba(41, 72, 63, 0.04);
+  box-shadow: 0 12px 28px rgba(41, 72, 63, 0.08), 0 3px 8px rgba(36, 40, 37, 0.04);
 }
