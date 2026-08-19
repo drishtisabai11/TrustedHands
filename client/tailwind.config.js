@@ -7,113 +7,100 @@ export default {
   theme: {
     extend: {
       colors: {
-        // STRICT APPROVED 11-COLOR PALETTE ONLY
-        // 1. Warm Linen Background #F4EFE7
+        // CENTRAL CSS VARIABLE TOKENS --th-*
         parchment: {
-          DEFAULT: '#F4EFE7',
-          light: '#F4EFE7',
-          dark: '#F4EFE7',
+          DEFAULT: 'var(--th-bg)',
+          light: 'var(--th-bg)',
+          dark: 'var(--th-bg)',
         },
-
-        // 2. Soft Ivory Surface #FFFCF7
         bone: {
-          DEFAULT: '#FFFCF7',
-          subtle: '#EDE8DE',
+          DEFAULT: 'var(--th-surface)',
+          subtle: 'var(--th-surface-alt)',
         },
+        ivorySecondary: 'var(--th-surface-alt)',
 
-        // 3. Secondary Surface #EDE8DE
-        ivorySecondary: '#EDE8DE',
-
-        // 4. Refined Terracotta Primary CTA #A6533C
         brand: {
-          DEFAULT: '#A6533C',
-          light: '#A6533C',
-          dark: '#71382D',
-          hover: '#71382D',
+          DEFAULT: 'var(--th-primary)',
+          light: 'var(--th-primary)',
+          dark: 'var(--th-primary-dark)',
+          hover: 'var(--th-primary-dark)',
         },
         crimson: {
-          DEFAULT: '#A6533C',
-          light: '#A6533C',
-          dark: '#71382D',
+          DEFAULT: 'var(--th-primary)',
+          light: 'var(--th-primary)',
+          dark: 'var(--th-primary-dark)',
         },
         mineral: {
-          DEFAULT: '#A6533C',
+          DEFAULT: 'var(--th-primary)',
         },
         clay: {
-          DEFAULT: '#A6533C',
+          DEFAULT: 'var(--th-primary)',
         },
 
-        // 5. Burnt Umber Primary Dark #71382D
         burnt: {
-          DEFAULT: '#71382D',
-          light: '#71382D',
-          dark: '#71382D',
-          hover: '#71382D',
+          DEFAULT: 'var(--th-primary-dark)',
+          light: 'var(--th-primary-dark)',
+          dark: 'var(--th-primary-dark)',
+          hover: 'var(--th-primary-dark)',
         },
 
-        // 6. Deep Forest Secondary Brand #29483F
         burgundy: {
-          DEFAULT: '#29483F',
-          light: '#29483F',
-          dark: '#29483F',
-          hover: '#29483F',
+          DEFAULT: 'var(--th-secondary)',
+          light: 'var(--th-secondary)',
+          dark: 'var(--th-secondary)',
+          hover: 'var(--th-secondary)',
         },
         slate: {
-          DEFAULT: '#29483F',
-          light: '#29483F',
-          dark: '#29483F',
-          hover: '#29483F',
+          DEFAULT: 'var(--th-secondary)',
+          light: 'var(--th-secondary)',
+          dark: 'var(--th-secondary)',
+          hover: 'var(--th-secondary)',
         },
         secondary: {
-          DEFAULT: '#29483F',
-          light: '#29483F',
-          dark: '#29483F',
+          DEFAULT: 'var(--th-secondary)',
+          light: 'var(--th-secondary)',
+          dark: 'var(--th-secondary)',
         },
 
-        // 7. Muted Brass Premium Accent #C5A46D
         brass: {
-          DEFAULT: '#C5A46D',
-          light: '#C5A46D',
-          dark: '#C5A46D',
+          DEFAULT: 'var(--th-accent)',
+          light: 'var(--th-accent)',
+          dark: 'var(--th-accent)',
         },
 
-        // 8. Sage Olive Verified / Success #64745A
         seafoam: {
-          DEFAULT: '#64745A',
-          light: '#64745A',
-          dark: '#64745A',
-          subtle: '#64745A',
+          DEFAULT: 'var(--th-success)',
+          light: 'var(--th-success)',
+          dark: 'var(--th-success)',
+          subtle: 'var(--th-success)',
         },
         sage: {
-          DEFAULT: '#64745A',
-          light: '#64745A',
-          dark: '#64745A',
+          DEFAULT: 'var(--th-success)',
+          light: 'var(--th-success)',
+          dark: 'var(--th-success)',
         },
         mint: {
-          DEFAULT: '#64745A',
-          light: '#64745A',
-          dark: '#64745A',
+          DEFAULT: 'var(--th-success)',
+          light: 'var(--th-success)',
+          dark: 'var(--th-success)',
         },
 
-        // 9. Charcoal Ink Primary Text #242825
         ink: {
-          DEFAULT: '#242825',
-          light: '#242825',
-          dark: '#242825',
+          DEFAULT: 'var(--th-text)',
+          light: 'var(--th-text)',
+          dark: 'var(--th-text)',
         },
 
-        // 10. Warm Grey Muted Text #706F68
         charcoal: {
-          DEFAULT: '#242825',
-          muted: '#706F68',
-          subtle: '#706F68',
+          DEFAULT: 'var(--th-text)',
+          muted: 'var(--th-muted)',
+          subtle: 'var(--th-muted)',
         },
 
-        // 11. Warm Stone Border #DDD5C8
         mist: {
-          DEFAULT: '#DDD5C8',
-          dark: '#DDD5C8',
-          light: '#DDD5C8',
+          DEFAULT: 'var(--th-border)',
+          dark: 'var(--th-border)',
+          light: 'var(--th-border)',
         },
       },
       fontFamily: {
