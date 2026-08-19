@@ -11,7 +11,7 @@ export interface IProvider extends Document {
   yearsOfExperience: number;
   rating: number;
   reviewCount: number;
-  verificationStatus: 'UNVERIFIED' | 'SUBMITTED' | 'VERIFIED' | 'REJECTED';
+  verificationStatus: 'UNVERIFIED' | 'SUBMITTED' | 'PENDING' | 'UNDER_REVIEW' | 'APPROVED' | 'VERIFIED' | 'REJECTED' | 'SUSPENDED';
   isIdentityVerified: boolean;
   isBackgroundChecked: boolean;
   isInsured: boolean;
@@ -23,26 +23,10 @@ export interface IProvider extends Document {
     coordinates: [number, number]; // [lng, lat]
   };
   badges: string[];
+  portfolio?: Array<{ id?: string; title?: string; imageUrl?: string; description?: string }>;
+  availability?: Record<string, any>;
   languages?: string[];
   skills?: string[];
-  portfolio?: Array<{
-    id: string;
-    title: string;
-    description: string;
-    imageUrl: string;
-    category?: string;
-    createdAt?: Date;
-  }>;
-  availability?: {
-    isOnline: boolean;
-    weeklySchedule: Array<{
-      day: string;
-      isAvailable: boolean;
-      startTime: string;
-      endTime: string;
-    }>;
-    blackoutDates: string[];
-  };
 }
 
 const ProviderSchema = new Schema<IProvider>(
@@ -59,7 +43,7 @@ const ProviderSchema = new Schema<IProvider>(
     reviewCount: { type: Number, default: 0 },
     verificationStatus: {
       type: String,
-      enum: ['UNVERIFIED', 'SUBMITTED', 'VERIFIED', 'REJECTED'],
+      enum: ['UNVERIFIED', 'SUBMITTED', 'PENDING', 'UNDER_REVIEW', 'APPROVED', 'VERIFIED', 'REJECTED', 'SUSPENDED'],
       default: 'UNVERIFIED',
     },
     isIdentityVerified: { type: Boolean, default: false },
@@ -73,30 +57,17 @@ const ProviderSchema = new Schema<IProvider>(
       coordinates: [Number],
     },
     badges: [{ type: String }],
-    languages: [{ type: String }],
-    skills: [{ type: String }],
     portfolio: [
       {
-        id: { type: String, required: true },
-        title: { type: String, required: true },
-        description: { type: String, required: true },
-        imageUrl: { type: String, required: true },
-        category: { type: String },
-        createdAt: { type: Date, default: Date.now },
+        id: { type: String },
+        title: { type: String },
+        imageUrl: { type: String },
+        description: { type: String },
       },
     ],
-    availability: {
-      isOnline: { type: Boolean, default: true },
-      weeklySchedule: [
-        {
-          day: { type: String },
-          isAvailable: { type: Boolean, default: true },
-          startTime: { type: String, default: '09:00' },
-          endTime: { type: String, default: '18:00' },
-        },
-      ],
-      blackoutDates: [{ type: String }],
-    },
+    availability: { type: Schema.Types.Mixed },
+    languages: [{ type: String }],
+    skills: [{ type: String }],
   },
   { timestamps: true }
 );

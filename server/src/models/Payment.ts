@@ -43,9 +43,14 @@ export interface IReview extends Document {
   comment: string;
   workCategory: string;
   isVerifiedPurchase: boolean;
+  moderationStatus: 'VISIBLE' | 'FLAGGED' | 'HIDDEN' | 'RESTORED';
+  flaggedReason?: string;
+  moderatedBy?: mongoose.Types.ObjectId;
+  moderatedAt?: Date;
   providerResponse?: {
     comment: string;
-    createdAt: Date;
+    respondedAt?: Date;
+    createdAt?: Date;
   };
 }
 
@@ -58,8 +63,18 @@ const ReviewSchema = new Schema<IReview>(
     comment: { type: String, required: true },
     workCategory: { type: String, required: true },
     isVerifiedPurchase: { type: Boolean, default: true },
+    moderationStatus: {
+      type: String,
+      enum: ['VISIBLE', 'FLAGGED', 'HIDDEN', 'RESTORED'],
+      default: 'VISIBLE',
+      index: true,
+    },
+    flaggedReason: { type: String },
+    moderatedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+    moderatedAt: { type: Date },
     providerResponse: {
       comment: { type: String },
+      respondedAt: { type: Date },
       createdAt: { type: Date },
     },
   },
@@ -67,3 +82,4 @@ const ReviewSchema = new Schema<IReview>(
 );
 
 export const Review = mongoose.model<IReview>('Review', ReviewSchema);
+

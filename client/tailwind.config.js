@@ -7,89 +7,79 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand Crimson Red #AE2448
+        // Trusted Hands Palette
+        // Primary / CTA #C89B3C
         brand: {
-          DEFAULT: '#AE2448',
-          light: '#C94364',
-          dark: '#74152F',
-          hover: '#8F1D3B',
+          DEFAULT: '#C89B3C',
+          light: '#D9B055',
+          dark: '#AA7F27',
+          hover: '#B5882E',
         },
-        // Mineral & Clay alias mapped to Primary Brand Crimson Red #AE2448
-        mineral: {
-          DEFAULT: '#AE2448',
-          light: '#C94364',
-          dark: '#74152F',
-          hover: '#8F1D3B',
+        crimson: {
+          DEFAULT: '#C89B3C',
+          light: '#D9B055',
+          dark: '#AA7F27',
         },
-        clay: {
-          DEFAULT: '#AE2448',
-          light: '#C94364',
-          dark: '#74152F',
+        // Secondary Accent #2F4858
+        burgundy: {
+          DEFAULT: '#2F4858',
+          light: '#415E72',
+          dark: '#1F313E',
         },
-        // Deep Burgundy / Wine #6E1A37
         slate: {
-          DEFAULT: '#6E1A37',
-          light: '#892A4B',
-          dark: '#521027',
+          DEFAULT: '#2F4858',
+          light: '#415E72',
+          dark: '#1F313E',
         },
-        wine: {
-          DEFAULT: '#6E1A37',
-          light: '#892A4B',
-          dark: '#521027',
+        // Verified / Success #6B7F52
+        seafoam: {
+          DEFAULT: '#6B7F52',
+          light: '#859C6A',
+          dark: '#52633C',
         },
-        // Muted Seafoam / Teal #72BAA9
         sage: {
-          DEFAULT: '#72BAA9',
-          light: '#95D1C3',
-          dark: '#478A7B',
-          subtle: '#EBF7F4',
-        },
-        secondary: {
-          DEFAULT: '#72BAA9',
-          light: '#95D1C3',
-          dark: '#478A7B',
-          subtle: '#EBF7F4',
-        },
-        teal: {
-          DEFAULT: '#72BAA9',
-          light: '#95D1C3',
-          dark: '#478A7B',
-        },
-        // Soft Mint / Light Surface #D5E7B5
-        parchment: {
-          DEFAULT: '#D5E7B5',
-          light: '#E6F2CD',
-          dark: '#BECF9D',
+          DEFAULT: '#6B7F52',
+          light: '#859C6A',
+          dark: '#52633C',
         },
         mint: {
-          DEFAULT: '#D5E7B5',
-          light: '#E6F2CD',
-          dark: '#BECF9D',
+          DEFAULT: '#6B7F52',
+          light: '#859C6A',
+          dark: '#52633C',
         },
-        celadon: {
-          DEFAULT: '#D5E7B5',
-          light: '#E6F2CD',
-          dark: '#BECF9D',
+        // Background #F5F2EC
+        parchment: {
+          DEFAULT: '#F5F2EC',
+          light: '#FAF8F4',
+          dark: '#EDE8DE',
         },
-        // Preserved text & surface contrast neutrals
-        ink: {
-          DEFAULT: '#17211D',
-          light: '#23302B',
-          dark: '#0E1513',
-        },
+        // Surface #FFFFFF & Secondary Surface #EDE8DE
         bone: {
-          DEFAULT: '#FBF9F4',
-          subtle: '#F6F3EB',
+          DEFAULT: '#FFFFFF',
+          subtle: '#EDE8DE',
         },
+        // Primary Text #2B2E33
+        ink: {
+          DEFAULT: '#2B2E33',
+          light: '#3C4047',
+          dark: '#1A1C1F',
+        },
+        // Muted Text / Borders #8B8479
         charcoal: {
-          DEFAULT: '#292E2B',
-          muted: '#525B56',
-          subtle: '#7A857F',
+          DEFAULT: '#2B2E33',
+          muted: '#8B8479',
+          subtle: '#A29B90',
         },
         mist: {
-          DEFAULT: '#D9DED6',
-          dark: '#C3CAC0',
-          light: '#E8ECE6',
+          DEFAULT: '#8B8479',
+          dark: '#736D63',
+          light: '#EDE8DE',
+        },
+        mineral: {
+          DEFAULT: '#C89B3C',
+        },
+        clay: {
+          DEFAULT: '#C89B3C',
         },
       },
       fontFamily: {
@@ -105,17 +95,10 @@ export default {
         'xl': '14px',
       },
       boxShadow: {
-        'subtle': '0 1px 3px rgba(23, 33, 29, 0.05)',
-        'card': '0 2px 8px rgba(23, 33, 29, 0.04), 0 1px 2px rgba(23, 33, 29, 0.02)',
-        'elevated': '0 8px 24px rgba(23, 33, 29, 0.07), 0 2px 6px rgba(23, 33, 29, 0.03)',
-        'modal': '0 20px 40px rgba(23, 33, 29, 0.12), 0 4px 12px rgba(23, 33, 29, 0.06)',
-      },
-      letterSpacing: {
-        'tightest': '-0.025em',
-        'tight': '-0.015em',
-        'normal': '0',
-        'wide': '0.025em',
-        'wider': '0.05em',
+        'subtle': '0 1px 3px rgba(43, 46, 51, 0.05)',
+        'card': '0 2px 8px rgba(43, 46, 51, 0.04), 0 1px 2px rgba(43, 46, 51, 0.02)',
+        'elevated': '0 8px 24px rgba(43, 46, 51, 0.07), 0 2px 6px rgba(43, 46, 51, 0.03)',
+        'modal': '0 20px 40px rgba(43, 46, 51, 0.12), 0 4px 12px rgba(43, 46, 51, 0.06)',
       },
     },
   },

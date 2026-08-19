@@ -27,7 +27,9 @@ Thumbs.db
 # Temp / Cache / Archives
 .cache/
 .vite/
-M1.zip
-M1 ss/
+*.zip
+M1 screenshots/
+M2 screenshots/
 M1/
 M2/
+M3/

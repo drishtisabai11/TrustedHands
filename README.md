@@ -1,95 +1,121 @@
-# Trusted Hands — Local Services Marketplace
+# Trusted Hands — Local Services Marketplace (Production Milestone 3)
 
-**Trusted Hands** is a production-quality full-stack local services marketplace connecting discerning homeowners and clients with vetted, verified service professionals (electricians, master carpenters, deep cleaning specialists, painters, plumbers, appliance technicians, and local craftsmen).
+**Trusted Hands** is a complete, production-oriented full-stack local services marketplace connecting homeowners and clients with vetted, verified service professionals (electricians, master carpenters, deep cleaning specialists, painters, plumbers, appliance technicians, and local craftsmen).
 
 ---
 
-## 🎨 Visual Identity & Design System
+## 🎨 Visual Identity & Brand System
 
-The visual identity of Trusted Hands combines **editorial publication design + modern digital product design + local human services**.
+The visual identity of Trusted Hands preserves the exact official brand system:
 
-### Brand Palette
-- **Deep Ink (`#17211D`)**: Primary headlines, navigation text, footers.
-- **Forest Slate (`#34483F`)**: Dark surfaces & subtle hover states.
-- **Mineral Green (`#657C6B`)**: Primary buttons, active states, verification badges.
-- **Soft Sage (`#A9B8A8`)**: Supporting highlights & soft backgrounds.
-- **Warm Clay (`#B8755B`)**: Selective warm accents (5% visual balance limit).
-- **Parchment (`#F4F0E7`)**: Main background.
-- **Bone (`#FBF9F4`)**: Cards, panels, elevated surfaces.
+- **Primary Crimson Red (`#AE2448`)**: Primary actions, active states, important links, focus states.
+- **Dark Secondary Burgundy (`#6E1A37`)**: Dark surfaces, strong headings, admin navigation accents.
+- **Secondary Muted Seafoam (`#72BAA9`)**: Positive states, verified states, approved states, accents.
+- **Light Surface Soft Mint (`#D5E7B5`)**: Light surfaces, highlights, supporting badges.
+- **Deep Ink (`#17211D`)**: Primary typography & dark accents.
 - **Charcoal (`#292E2B`)**: Body text.
+- **Bone White (`#FBF9F4`)**: Cards, panels, elevated surfaces.
 - **Mist (`#D9DED6`)**: Subtle borders and dividers.
 
-### Typography
-- **Headings / Editorial**: `DM Serif Display`
-- **Body / Interface**: `Manrope`
-
 ---
 
-## 🏗 Project Architecture
+## 🏗 Project Architecture & Admin Subsystems
 
 ```
-Trusted Hands/
-├── client/                      # React + TypeScript + Vite + Tailwind CSS Frontend
+Trusted Hands (M3)/
+├── client/                      # React 18 + TypeScript + Vite + Tailwind CSS Frontend
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── ui/              # 30+ Reusable UI components & primitives
-│   │   │   └── layout/          # Header, Footer, Container layout components
+│   │   │   ├── admin/           # AdminLayout & AdminProtectedRoute
+│   │   │   ├── booking/         # Booking Timeline, Cancellation & Review forms
+│   │   │   ├── layout/          # Header, Footer, Container
+│   │   │   └── ui/              # Button, Input, Select, Rating, Modal...
+│   │   ├── context/             # AuthContext (JWT & Role session state)
 │   │   ├── pages/
-│   │   │   └── DesignSystemShowcase.tsx  # Interactive Component Explorer
-│   │   ├── services/
-│   │   │   └── api/             # Axios client with JWT interceptors
-│   │   ├── styles/              # Global CSS & brand custom properties
-│   │   └── types/               # Full TypeScript interfaces (User, Provider, Booking...)
-│   ├── tailwind.config.js       # Strict design token mapping
-│   └── vite.config.ts           # Dev server with proxy to backend
+│   │   │   ├── admin/           # 18 Admin pages (Overview, Analytics, Customers,
+│   │   │   │   │                # Providers, Pending Queue, Services, Categories,
+│   │   │   │   │                # Bookings, Payments, Reviews, Notifications,
+│   │   │   │   │                # CMS, Reports, Settings, Audit Logs)
+│   │   │   │   └── cms/         # HomepageCMSPage, FaqCMSPage, AboutCMSPage
+│   │   │   ├── auth/            # Login, Register, Forgot Password
+│   │   │   ├── booking/         # Customer Booking Flow & Confirmation
+│   │   │   └── public/          # Home, Services, Category, Provider Profiles, About
+│   │   ├── services/            # adminService & marketplaceService API clients
+│   │   └── types/               # Full TypeScript interfaces & Admin types
+│   ├── index.html
+│   └── vite.config.ts
 │
 └── server/                      # Node.js + Express + TypeScript + MongoDB Backend
     ├── src/
-    │   ├── config/              # Environment & MongoDB connection configs
-    │   ├── controllers/         # Auth, Category, Provider, Booking controllers
-    │   ├── middleware/          # JWT Auth & Role guards (CUSTOMER, PROVIDER, ADMIN)
-    │   ├── models/              # Mongoose models (User, Provider, Customer, Booking...)
-    │   └── routes/              # Express API V1 routes (/api/v1/auth, /api/v1/providers...)
-    └── .env.example             # Environment configuration blueprint
+    │   ├── config/              # DB connection, Env validation, Admin seeding
+    │   ├── controllers/         # adminController, authController, bookingController,
+    │   │                        # paymentController, providerController, reviewController, healthController
+    │   ├── middleware/          # JWT Auth & requireRole('ADMIN') server-side guards
+    │   ├── models/              # User, Customer, Provider, Service, Category, Booking,
+    │   │                        # Payment, Review, AuditLog, CMSSection, PlatformSetting
+    │   └── routes/              # Express API V1 routes (/api/v1/admin, /api/v1/health...)
+    └── package.json
 ```
 
 ---
 
-## 🚀 Commands to Run
+## 🛠 Admin Operational Control Center Features
 
-### Install Dependencies
+1. **Server-Side Admin Role Enforcement**: JWT authentication + `requireRole('ADMIN')` guard on all `/api/v1/admin/*` routes.
+2. **Operational Overview & Today's Attention**: Actionable attention queue (Pending provider verifications, Disputed bookings, Failed payments, Flagged reviews) + Real DB platform snapshot.
+3. **Platform Analytics & Date Filtering**: Date range selector (Today, 7D, 30D, 90D, YTD, Custom) with real DB aggregations (gross booking value, platform revenue, fulfillment & cancellation rates, category breakdown).
+4. **Provider Verification Queue (`/admin/providers/pending`)**: Document inspector for government IDs, trade certificates, licenses, and background checks with audit-logged Approval, Rejection, and Change Request workflows.
+5. **Customer & Provider Directory**: Server-side pagination, search by name/email/phone/ID, account status toggles (Active/Suspended), spend stats, and booking history.
+6. **Service & Category Safety**: Service catalog management with category dependency safeguards before deactivation.
+7. **Booking & Payment Interventions**: Administrative booking cancellation/completion, payment status tracking, and backend refund triggers.
+8. **Review Moderation**: Rating filters, flag/hide/restore actions with stored audit logs.
+9. **CMS & FAQ Management**: Structured editors for Homepage hero/trust copy, About narrative, and FAQ CRUD.
+10. **Audit Logging & CSV Exports**: Comprehensive audit logs for every admin action (`AuditLog` model) and CSV exports for Customers, Providers, Bookings, Payments, and Reviews.
+
+---
+
+## 🚀 Environment Variables & Commands
+
+### `.env` Setup (Server)
+```env
+PORT=5000
+NODE_ENV=production
+MONGODB_URI=mongodb://localhost:27017/trusted_hands
+JWT_SECRET=your_super_secret_jwt_key
+CLIENT_URL=http://localhost:5173
+ADMIN_EMAIL=admin@trustedhands.com
+ADMIN_PASSWORD=AdminSecret123!
+```
+
+### Install Dependencies & Build
 ```bash
-# Install root dependencies
-npm install
-
-# Install client & server dependencies
+# Install all packages
 npm run install:all
-```
 
-### Run Development Servers
-```bash
-# Option 1: Run both Client (5173) and Server (5000) concurrently
-npm run dev
-
-# Option 2: Run only Frontend Client
-npm run dev:client
-
-# Option 3: Run only Backend Server
-npm run dev:server
-```
-
-### Build Production Bundles
-```bash
+# Build Backend & Frontend for Production
 npm run build
+
+# Start Backend Server in Production Mode
+cd server && npm start
+```
+
+### Health Check Endpoint
+`GET /api/v1/health`
+```json
+{
+  "status": "healthy",
+  "service": "Trusted Hands API Engine",
+  "environment": "production",
+  "database": "connected",
+  "timestamp": "2026-08-19T10:30:00.000Z"
+}
 ```
 
 ---
 
-## 🔐 Key Features Configured (Foundation Phase)
+## 🔐 Admin Setup Instructions
 
-1. **Strict Design Tokens**: Centralized Tailwind configuration, custom CSS variables, Google Fonts loading.
-2. **30+ UI Components & Primitives**: Buttons, Inputs, Selects, Checkboxes, Radios, Toggles, Badges, Avatars, Rating Stars, Tabs, Modals, Drawers, Dropdowns, Tooltips, Toasts, Alerts, Skeletons, Price Displays, Date Selectors, Time Slots, Calendar primitives.
-3. **Interactive Design System Showcase**: Available at `http://localhost:5173/` to inspect all design components and token systems.
-4. **Backend REST API Structure**: Full v1 routing setup for `/api/v1/auth`, `/api/v1/providers`, `/api/v1/categories`, `/api/v1/bookings`, `/api/v1/payments`, `/api/v1/reviews`.
-5. **Database Models**: Mongoose models for User, Customer, Provider, Category, Service, Booking, Payment, Review, Address, Availability, Notification, ProviderDocument, Transaction, Favorite, CMSPage, FAQ, SiteSetting.
-6. **JWT Auth & Role Authorization**: Role guards for `CUSTOMER`, `PROVIDER`, and `ADMIN`.
+To log in as administrator:
+1. Ensure `ADMIN_EMAIL` and `ADMIN_PASSWORD` are set in `server/.env`.
+2. On server start, `seedInitialAdmin()` automatically seeds or elevates the admin user.
+3. Navigate to `/auth/login`, enter credentials, and access the operational control center at `/admin`.

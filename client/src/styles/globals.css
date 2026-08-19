@@ -4,20 +4,19 @@
 
 @layer base {
   :root {
-    --color-ink: #17211D;
-    --color-slate: #6E1A37;      /* Deep Burgundy / Wine #6E1A37 */
-    --color-mineral: #AE2448;    /* Crimson Red #AE2448 */
-    --color-sage: #72BAA9;       /* Muted Seafoam / Teal #72BAA9 */
-    --color-clay: #AE2448;       /* Crimson Red #AE2448 */
-    --color-parchment: #D5E7B5;  /* Soft Mint Surface #D5E7B5 */
-    --color-bone: #FBF9F4;       /* Bone White #FBF9F4 */
-    --color-charcoal: #292E2B;
-    --color-mist: #D9DED6;
+    --color-bg: #F5F2EC;
+    --color-surface: #FFFFFF;
+    --color-secondary-surface: #EDE8DE;
+    --color-primary-text: #2B2E33;
+    --color-primary-cta: #C89B3C;
+    --color-secondary-accent: #2F4858;
+    --color-success: #6B7F52;
+    --color-muted: #8B8479;
   }
 
   body {
-    background-color: var(--color-parchment);
-    color: var(--color-charcoal);
+    background-color: var(--color-bg);
+    color: var(--color-primary-text);
     font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -35,20 +34,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #D5E7B5;
+  background: #F5F2EC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #72BAA9;
+  background: #8B8479;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #AE2448;
+  background: #C89B3C;
 }
 
 /* Focused UI outlines */
 *:focus-visible {
-  outline: 2px solid #AE2448;
+  outline: 2px solid #C89B3C;
   outline-offset: 2px;
 }

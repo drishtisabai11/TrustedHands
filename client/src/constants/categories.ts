@@ -1,84 +1,22 @@
-import { Category } from '../types';
+export interface CanonicalCategory {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  iconName: string;
+  popularServicesCount: number;
+  isActive: boolean;
+}
 
-export const OFFICIAL_CATEGORIES: Category[] = [
-  {
-    id: 'cat-cleaning',
-    name: 'Home Cleaning',
-    slug: 'cleaning',
-    description: 'Thoughtful cleaning services for homes that need a little more care.',
-    iconName: 'Sparkles',
-    imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 24,
-    isActive: true,
-  },
-  {
-    id: 'cat-electrical',
-    name: 'Electrical',
-    slug: 'electrical',
-    description: 'Reliable help with installations, repairs and everyday electrical work.',
-    iconName: 'Zap',
-    imageUrl: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 18,
-    isActive: true,
-  },
-  {
-    id: 'cat-carpentry',
-    name: 'Carpentry',
-    slug: 'carpentry',
-    description: 'Skilled hands for furniture, fixtures, repairs and custom work.',
-    iconName: 'Hammer',
-    imageUrl: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 16,
-    isActive: true,
-  },
-  {
-    id: 'cat-painting',
-    name: 'Painting',
-    slug: 'painting',
-    description: 'Fresh walls, careful finishes and professionals who take pride in the details.',
-    iconName: 'Paintbrush',
-    imageUrl: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 12,
-    isActive: true,
-  },
-  {
-    id: 'cat-plumbing',
-    name: 'Plumbing',
-    slug: 'plumbing',
-    description: 'Fast, practical help for leaks, fittings, fixtures and repairs.',
-    iconName: 'Droplets',
-    imageUrl: 'https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 20,
-    isActive: true,
-  },
-  {
-    id: 'cat-beauty',
-    name: 'Beauty & Wellness',
-    slug: 'beauty',
-    description: 'Personal care from experienced professionals who come to you.',
-    iconName: 'Smile',
-    imageUrl: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 15,
-    isActive: true,
-  },
-  {
-    id: 'cat-tutoring',
-    name: 'Tutoring',
-    slug: 'tutoring',
-    description: 'Find patient, experienced tutors for focused one-to-one learning.',
-    iconName: 'BookOpen',
-    imageUrl: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 14,
-    isActive: true,
-  },
-  {
-    id: 'cat-appliance',
-    name: 'Appliance Repair',
-    slug: 'appliance',
-    description: 'Practical repair help for the appliances your home depends on.',
-    iconName: 'Wrench',
-    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-    popularServicesCount: 22,
-    isActive: true,
-  },
+export const CANONICAL_CATEGORIES: CanonicalCategory[] = [
+  { id: 'cat-1', name: 'Home Cleaning', slug: 'home-cleaning', description: 'Deep house cleaning, kitchen scrubbing, bathroom sanitization', iconName: 'Sparkles', popularServicesCount: 12, isActive: true },
+  { id: 'cat-2', name: 'Electrical', slug: 'electrical', description: 'Wiring, circuit breaker repair, fan installation, lighting', iconName: 'Zap', popularServicesCount: 18, isActive: true },
+  { id: 'cat-3', name: 'Carpentry', slug: 'carpentry', description: 'Custom furniture repair, door fitting, cabinet assembly', iconName: 'Hammer', popularServicesCount: 10, isActive: true },
+  { id: 'cat-4', name: 'Painting', slug: 'painting', description: 'Interior & exterior wall painting, waterproof coating', iconName: 'Paintbrush', popularServicesCount: 15, isActive: true },
+  { id: 'cat-5', name: 'Plumbing', slug: 'plumbing', description: 'Tap leak repair, pipe fitting, water tank cleaning', iconName: 'Droplet', popularServicesCount: 22, isActive: true },
+  { id: 'cat-6', name: 'Beauty & Wellness', slug: 'beauty-wellness', description: 'At-home salon, massage therapy, grooming', iconName: 'Heart', popularServicesCount: 14, isActive: true },
+  { id: 'cat-7', name: 'Tutoring', slug: 'tutoring', description: 'Academic home tuition, language coaching, skill mentoring', iconName: 'BookOpen', popularServicesCount: 9, isActive: true },
+  { id: 'cat-8', name: 'Appliance Repair', slug: 'appliance-repair', description: 'AC servicing, refrigerator repair, washing machine fixing', iconName: 'Wrench', popularServicesCount: 25, isActive: true },
 ];
+
+export const OFFICIAL_CATEGORIES = CANONICAL_CATEGORIES;

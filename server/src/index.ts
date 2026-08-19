@@ -5,6 +5,8 @@ import { connectDB } from './config/db';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
 
+import { seedInitialAdmin } from './config/seedAdmin';
+
 const app = express();
 
 // Middleware
@@ -12,8 +14,10 @@ app.use(cors({ origin: env.CLIENT_URL, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB & Seed Admin
+connectDB().then(() => {
+  seedInitialAdmin();
+});
 
 // API V1 Routes
 app.use('/api/v1', routes);

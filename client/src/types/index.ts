@@ -6,7 +6,7 @@ export type VerificationStatus = 'UNVERIFIED' | 'SUBMITTED' | 'VERIFIED' | 'REJE
 
 export type BookingStatus = 
   | 'PENDING' 
-  | 'CONFIRMED' 
+  | 'CONFIRMED'
   | 'PROVIDER_ACCEPTED'
   | 'PROVIDER_ON_THE_WAY'
   | 'SERVICE_STARTED'
@@ -48,11 +48,15 @@ export interface Address {
 
 export interface Customer {
   id: string;
-  userId: string;
-  user: User;
-  addresses: Address[];
+  userId?: string;
+  user?: User;
+  name?: string;
+  phone?: string;
+  email?: string;
+  avatar?: string;
+  addresses?: Address[];
   preferredPaymentMethod?: PaymentMethod;
-  totalBookings: number;
+  totalBookings?: number;
 }
 
 export interface ProviderDocument {
@@ -74,26 +78,21 @@ export interface TimeSlot {
 export interface DayAvailability {
   day: 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY';
   isAvailable: boolean;
-  slots?: TimeSlot[];
-  startTime?: string;
-  endTime?: string;
+  slots: TimeSlot[];
 }
 
 export interface Availability {
-  id?: string;
-  providerId?: string;
-  isOnline?: boolean;
-  schedule?: DayAvailability[];
-  weeklySchedule?: DayAvailability[];
+  id: string;
+  providerId: string;
+  schedule: DayAvailability[];
   blackoutDates: string[]; // ISO Date strings
 }
 
 export interface PortfolioItem {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  category?: string;
+  id?: string;
+  title?: string;
+  imageUrl?: string;
+  description?: string;
   createdAt?: string;
 }
 
@@ -114,7 +113,7 @@ export interface Provider {
   isIdentityVerified: boolean;
   isBackgroundChecked: boolean;
   isInsured: boolean;
-  documents?: ProviderDocument[];
+  documents: ProviderDocument[];
   serviceAreaRadiusKm: number;
   location: {
     city: string;
@@ -124,8 +123,6 @@ export interface Provider {
   };
   availability?: Availability;
   badges: string[];
-  languages?: string[];
-  skills?: string[];
   portfolio?: PortfolioItem[];
 }
 
@@ -158,11 +155,11 @@ export interface Booking {
   id: string;
   bookingNumber: string;
   customerId: string;
-  customer?: Customer | User | any;
+  customer?: Customer;
   providerId: string;
-  provider?: Provider | any;
+  provider?: Provider;
   serviceId: string;
-  service?: Service | any;
+  service?: Service;
   status: BookingStatus;
   scheduledDate: string; // YYYY-MM-DD
   scheduledTimeSlot: string; // e.g. "10:00 AM - 12:00 PM"
@@ -204,11 +201,6 @@ export interface Transaction {
   createdAt: string;
 }
 
-export interface ReviewResponse {
-  comment: string;
-  createdAt: string;
-}
-
 export interface Review {
   id: string;
   bookingId: string;
@@ -220,8 +212,12 @@ export interface Review {
   comment: string;
   workCategory: string;
   isVerifiedPurchase: boolean;
-  providerResponse?: ReviewResponse;
   createdAt: string;
+  providerResponse?: {
+    comment: string;
+    createdAt: string;
+    respondedAt?: string;
+  };
 }
 
 export interface Notification {
@@ -263,4 +259,77 @@ export interface SiteSetting {
   key: string;
   value: string;
   description: string;
+}
+
+export interface AuditLog {
+  _id: string;
+  admin: string | { _id: string; name: string; email: string };
+  adminEmail: string;
+  action: string;
+  entityType: 'PROVIDER' | 'CUSTOMER' | 'BOOKING' | 'PAYMENT' | 'REVIEW' | 'SERVICE' | 'CATEGORY' | 'CMS' | 'SETTINGS' | 'SYSTEM';
+  entityId?: string;
+  description: string;
+  metadata?: any;
+  createdAt: string;
+}
+
+export interface CMSSection {
+  _id?: string;
+  sectionKey: string;
+  title: string;
+  subtitle?: string;
+  bodyContent?: string;
+  mediaUrl?: string;
+  metadata?: any;
+  isPublished?: boolean;
+  updatedAt?: string;
+}
+
+export interface PlatformSetting {
+  _id?: string;
+  key: string;
+  value: any;
+  type: 'STRING' | 'NUMBER' | 'BOOLEAN' | 'JSON';
+  group: 'GENERAL' | 'FEES' | 'BOOKING' | 'PROVIDER' | 'SECURITY';
+  description: string;
+  updatedAt?: string;
+}
+
+export interface AdminOverview {
+  attention: {
+    pendingProviderApprovals: number;
+    bookingsRequiringIntervention: number;
+    paymentIssues: number;
+    flaggedReviews: number;
+  };
+  snapshot: {
+    totalCustomers: number;
+    activeProviders: number;
+    bookingsToday: number;
+    bookingsThisMonth: number;
+    completedBookings: number;
+    grossBookingValue: number;
+    platformRevenue: number;
+    averageRating: number;
+  };
+}
+
+export interface AdminAnalytics {
+  period: string;
+  metrics: {
+    totalBookings: number;
+    completedBookings: number;
+    cancelledBookings: number;
+    cancellationRate: number;
+    grossValue: number;
+    platformRevenue: number;
+    avgBookingValue: number;
+  };
+  categoryPerformance: Array<{
+    category: string;
+    bookings: number;
+    completed: number;
+    cancelled: number;
+    revenue: number;
+  }>;
 }

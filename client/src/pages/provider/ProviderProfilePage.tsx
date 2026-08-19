@@ -261,7 +261,7 @@ export const ProviderProfilePage: React.FC = () => {
 
                 <button
                   type="button"
-                  onClick={() => handleDeletePortfolio(item.id)}
+                  onClick={() => handleDeletePortfolio(item.id || '')}
                   className="absolute top-2 right-2 p-1.5 bg-bone/90 text-brand rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
                   title="Delete image"
                 >

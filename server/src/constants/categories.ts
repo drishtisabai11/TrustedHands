@@ -1,69 +1,62 @@
-export interface OfficialCategory {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  iconName: string;
-}
-
-export const OFFICIAL_CATEGORIES: OfficialCategory[] = [
+export const CANONICAL_CATEGORIES = [
   {
-    id: 'cat-cleaning',
     name: 'Home Cleaning',
-    slug: 'cleaning',
-    description: 'Thoughtful cleaning services for homes that need a little more care.',
+    slug: 'home-cleaning',
+    description: 'Deep house cleaning, kitchen scrubbing, bathroom sanitization, and sofa shampooing',
     iconName: 'Sparkles',
+    isActive: true,
   },
   {
-    id: 'cat-electrical',
     name: 'Electrical',
     slug: 'electrical',
-    description: 'Reliable help with installations, repairs and everyday electrical work.',
+    description: 'Wiring, circuit breaker repair, fan installation, lighting, and electrical troubleshooting',
     iconName: 'Zap',
+    isActive: true,
   },
   {
-    id: 'cat-carpentry',
     name: 'Carpentry',
     slug: 'carpentry',
-    description: 'Skilled hands for furniture, fixtures, repairs and custom work.',
+    description: 'Custom furniture repair, door fitting, cabinet assembly, and woodwork restoration',
     iconName: 'Hammer',
+    isActive: true,
   },
   {
-    id: 'cat-painting',
     name: 'Painting',
     slug: 'painting',
-    description: 'Fresh walls, careful finishes and professionals who take pride in the details.',
+    description: 'Interior & exterior wall painting, waterproof coating, and decorative texture finish',
     iconName: 'Paintbrush',
+    isActive: true,
   },
   {
-    id: 'cat-plumbing',
     name: 'Plumbing',
     slug: 'plumbing',
-    description: 'Fast, practical help for leaks, fittings, fixtures and repairs.',
-    iconName: 'Droplets',
+    description: 'Tap leak repair, pipe fitting, water tank cleaning, drainage unclogging, and bath fixtures',
+    iconName: 'Droplet',
+    isActive: true,
   },
   {
-    id: 'cat-beauty',
     name: 'Beauty & Wellness',
-    slug: 'beauty',
-    description: 'Personal care from experienced professionals who come to you.',
-    iconName: 'Smile',
+    slug: 'beauty-wellness',
+    description: 'At-home salon, massage therapy, grooming, and personal care services',
+    iconName: 'Heart',
+    isActive: true,
   },
   {
-    id: 'cat-tutoring',
     name: 'Tutoring',
     slug: 'tutoring',
-    description: 'Find patient, experienced tutors for focused one-to-one learning.',
+    description: 'Academic home tuition, language coaching, music lessons, and skill mentoring',
     iconName: 'BookOpen',
+    isActive: true,
   },
   {
-    id: 'cat-appliance',
     name: 'Appliance Repair',
-    slug: 'appliance',
-    description: 'Practical repair help for the appliances your home depends on.',
+    slug: 'appliance-repair',
+    description: 'AC servicing, refrigerator repair, washing machine fixing, and microwave service',
     iconName: 'Wrench',
+    isActive: true,
   },
 ];
 
-export const VALID_CATEGORY_NAMES = OFFICIAL_CATEGORIES.map((c) => c.name);
-export const VALID_CATEGORY_SLUGS = OFFICIAL_CATEGORIES.map((c) => c.slug);
+export const OFFICIAL_CATEGORIES = CANONICAL_CATEGORIES;
+export const VALID_CATEGORY_NAMES = CANONICAL_CATEGORIES.map((c) => c.name);
+export const VALID_CATEGORY_SLUGS = CANONICAL_CATEGORIES.map((c) => c.slug);
