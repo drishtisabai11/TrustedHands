@@ -30,35 +30,106 @@
   }
 }
 
-/* Explicit Global Color Utility Overrides - STRICT 11 APPROVED COLORS ONLY */
-.bg-parchment { background-color: #F4EFE7 !important; }
-.bg-bone { background-color: #FFFCF7 !important; }
-.bg-brand { background-color: #A6533C !important; }
-.bg-mineral { background-color: #A6533C !important; }
-.bg-clay { background-color: #A6533C !important; }
-.bg-crimson { background-color: #A6533C !important; }
-.bg-burnt { background-color: #71382D !important; }
-.bg-slate { background-color: #29483F !important; }
-.bg-burgundy { background-color: #29483F !important; }
-.bg-seafoam { background-color: #64745A !important; }
-.bg-sage { background-color: #64745A !important; }
-.bg-brass { background-color: #C5A46D !important; }
+/* STRICT EXPLICIT COLOR OVERRIDES — 11 APPROVED HEX VALUES ONLY */
 
-.text-ink { color: #242825 !important; }
-.text-charcoal { color: #242825 !important; }
-.text-charcoal-muted { color: #706F68 !important; }
-.text-charcoal-subtle { color: #706F68 !important; }
-.text-brand { color: #A6533C !important; }
-.text-mineral { color: #A6533C !important; }
-.text-burnt { color: #71382D !important; }
-.text-slate { color: #29483F !important; }
-.text-seafoam { color: #64745A !important; }
-.text-sage { color: #64745A !important; }
-.text-brass { color: #C5A46D !important; }
+/* 1. Warm Linen (#F4EFE7) */
+.bg-parchment,
+[class*="bg-parchment"] {
+  background-color: #F4EFE7 !important;
+}
 
-.border-mist { border-color: #DDD5C8 !important; }
+/* 2. Soft Ivory (#FFFCF7) */
+.bg-bone,
+[class*="bg-bone"] {
+  background-color: #FFFCF7 !important;
+}
 
-/* Custom scrollbars & smooth transitions */
+/* 3. Secondary Surface (#EDE8DE) */
+.bg-parchment-dark,
+.bg-bone-subtle {
+  background-color: #EDE8DE !important;
+}
+
+/* 4. Refined Terracotta Primary CTA (#A6533C) */
+.bg-brand,
+.bg-mineral,
+.bg-clay,
+.bg-crimson,
+.bg-primary {
+  background-color: #A6533C !important;
+}
+.text-brand,
+.text-mineral,
+.text-clay,
+.text-crimson {
+  color: #A6533C !important;
+}
+
+/* 5. Burnt Umber Primary Dark (#71382D) */
+.bg-burnt,
+.hover\:bg-burnt:hover {
+  background-color: #71382D !important;
+}
+.text-burnt {
+  color: #71382D !important;
+}
+
+/* 6. Deep Forest Secondary Brand (#29483F) */
+.bg-slate,
+.bg-burgundy,
+.bg-secondary {
+  background-color: #29483F !important;
+}
+.text-slate,
+.text-burgundy,
+.text-secondary {
+  color: #29483F !important;
+}
+
+/* 7. Muted Brass Premium Accent (#C5A46D) */
+.bg-brass {
+  background-color: #C5A46D !important;
+}
+.text-brass {
+  color: #C5A46D !important;
+}
+
+/* 8. Sage Olive Verified / Success (#64745A) */
+.bg-seafoam,
+.bg-sage,
+.bg-mint,
+.bg-success {
+  background-color: #64745A !important;
+}
+.text-seafoam,
+.text-sage,
+.text-mint,
+.text-success {
+  color: #64745A !important;
+}
+
+/* 9. Charcoal Ink Primary Text (#242825) */
+.text-ink,
+.text-charcoal,
+.text-primary-text {
+  color: #242825 !important;
+}
+
+/* 10. Warm Grey Muted Text (#706F68) */
+.text-charcoal-muted,
+.text-charcoal-subtle,
+.text-muted {
+  color: #706F68 !important;
+}
+
+/* 11. Warm Stone Border (#DDD5C8) */
+.border-mist,
+.border-border,
+[class*="border-mist"] {
+  border-color: #DDD5C8 !important;
+}
+
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

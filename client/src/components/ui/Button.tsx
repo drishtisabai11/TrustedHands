@@ -22,8 +22,8 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  // Variant styles mapped strictly to brand system
-  const baseStyles = "inline-flex items-center justify-center font-sans font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mineral focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none";
+  // Variant styles mapped strictly to TERRACOTTA & FOREST system
+  const baseStyles = "inline-flex items-center justify-center font-sans font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none";
 
   const sizeStyles = {
     sm: "px-3 py-1.5 text-xs rounded-sm gap-1.5 h-8",
@@ -32,12 +32,12 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-ink text-parchment hover:bg-slate active:bg-ink-dark border border-transparent shadow-subtle",
-    secondary: "bg-bone text-ink hover:bg-mist-light border border-mist active:bg-mist shadow-subtle",
-    outline: "bg-transparent text-ink hover:bg-bone border border-mist hover:border-slate active:bg-mist-light",
-    cta: "bg-mineral text-white hover:bg-mineral-hover active:bg-mineral-dark border border-transparent shadow-subtle",
-    text: "bg-transparent text-charcoal hover:text-ink hover:bg-mist-light/50 border border-transparent px-2",
-    danger: "bg-clay text-white hover:bg-clay-dark active:bg-clay-dark border border-transparent shadow-subtle",
+    primary: "bg-brand text-bone hover:bg-burnt active:bg-burnt border border-transparent shadow-subtle",
+    secondary: "bg-burgundy text-bone hover:bg-burnt border border-transparent active:bg-burnt shadow-subtle",
+    outline: "bg-transparent text-ink hover:bg-bone border border-mist hover:border-slate active:bg-parchment",
+    cta: "bg-brand text-bone hover:bg-burnt active:bg-burnt border border-transparent shadow-subtle",
+    text: "bg-transparent text-ink hover:text-brand hover:bg-parchment border border-transparent px-2",
+    danger: "bg-burnt text-bone hover:bg-brand active:bg-brand border border-transparent shadow-subtle",
   };
 
   const widthStyle = fullWidth ? "w-full" : "";

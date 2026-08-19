@@ -22,16 +22,16 @@ export const Badge: React.FC<BadgeProps> = ({
   };
 
   const variantStyles = {
-    ink: "bg-ink text-parchment border border-transparent",
-    slate: "bg-slate text-parchment border border-transparent",
-    mineral: "bg-mineral text-white border border-transparent",
-    sage: "bg-sage-subtle text-slate border border-sage/40",
-    clay: "bg-clay/10 text-clay-dark border border-clay/30",
-    parchment: "bg-bone text-charcoal border border-mist",
+    ink: "bg-ink text-bone border border-transparent",
+    slate: "bg-slate text-bone border border-transparent",
+    mineral: "bg-brand text-bone border border-transparent",
+    sage: "bg-seafoam/15 text-seafoam border border-seafoam/40",
+    clay: "bg-brand/15 text-brand border border-brand/40",
+    parchment: "bg-bone text-ink border border-mist",
     outline: "bg-transparent text-charcoal-muted border border-mist",
-    verified: "bg-sage-subtle text-slate border border-sage/40",
-    primary: "bg-mineral text-white border border-transparent",
-    secondary: "bg-slate text-parchment border border-transparent",
+    verified: "bg-seafoam/15 text-seafoam border border-seafoam/40",
+    primary: "bg-brand text-bone border border-transparent",
+    secondary: "bg-slate text-bone border border-transparent",
   };
 
   return (
@@ -58,12 +58,12 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
   const configs = {
     identity: {
       label: "Verified Professional",
-      icon: <ShieldCheck className="w-3.5 h-3.5 text-mineral" />,
+      icon: <ShieldCheck className="w-3.5 h-3.5 text-seafoam" />,
       variant: 'sage' as const,
     },
     background: {
       label: "Background Checked",
-      icon: <CheckCircle2 className="w-3.5 h-3.5 text-mineral" />,
+      icon: <CheckCircle2 className="w-3.5 h-3.5 text-seafoam" />,
       variant: 'sage' as const,
     },
     insured: {
@@ -73,7 +73,7 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
     },
     master: {
       label: "Master Craftsman",
-      icon: <Award className="w-3.5 h-3.5 text-clay" />,
+      icon: <Award className="w-3.5 h-3.5 text-brass" />,
       variant: 'clay' as const,
     },
   };
@@ -83,7 +83,7 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
   if (!showLabel) {
     return (
       <span 
-        className={`inline-flex items-center justify-center p-1 rounded-full bg-sage-subtle text-mineral border border-sage/40 ${className}`}
+        className={`inline-flex items-center justify-center p-1 rounded-full bg-seafoam/15 text-seafoam border border-seafoam/40 ${className}`}
         title={config.label}
       >
         {config.icon}
@@ -97,3 +97,5 @@ export const VerificationBadge: React.FC<VerificationBadgeProps> = ({
     </Badge>
   );
 };
+
+export default Badge;
