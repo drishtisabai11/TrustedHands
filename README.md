@@ -6,16 +6,18 @@
 
 ## 🎨 Visual Identity & Brand System
 
-The visual identity of Trusted Hands preserves the exact official brand system:
+The visual identity of Trusted Hands uses the **Terracotta & Forest** brand color system:
 
-- **Primary Crimson Red (`#AE2448`)**: Primary actions, active states, important links, focus states.
-- **Dark Secondary Burgundy (`#6E1A37`)**: Dark surfaces, strong headings, admin navigation accents.
-- **Secondary Muted Seafoam (`#72BAA9`)**: Positive states, verified states, approved states, accents.
-- **Light Surface Soft Mint (`#D5E7B5`)**: Light surfaces, highlights, supporting badges.
-- **Deep Ink (`#17211D`)**: Primary typography & dark accents.
-- **Charcoal (`#292E2B`)**: Body text.
-- **Bone White (`#FBF9F4`)**: Cards, panels, elevated surfaces.
-- **Mist (`#D9DED6`)**: Subtle borders and dividers.
+- **Primary Background (`#F4EFE7`)**: Warm Linen (tactile, warm environment).
+- **Primary Surface (`#FFFCF7`)**: Soft Ivory (cards, forms, modals, panels).
+- **Primary Brand / CTA (`#A6533C`)**: Refined Terracotta (primary actions, CTA buttons, key highlights).
+- **Primary Dark (`#71382D`)**: Burnt Umber (dark section backgrounds & secondary hover states).
+- **Secondary Brand (`#29483F`)**: Deep Forest (secondary buttons, navigation accents & feature sections).
+- **Premium Accent (`#C5A46D`)**: Muted Brass (selective decorative details & numerical highlights).
+- **Verified / Success (`#64745A`)**: Sage Olive (verification badges, background checked tags, success states).
+- **Primary Text (`#242825`)**: Charcoal Ink (headings, body text, form labels).
+- **Muted Text (`#706F68`)**: Warm Grey (secondary descriptions, metadata & timestamps).
+- **Border (`#DDD5C8`)**: Warm Stone (subtle card borders, inputs & dividers).
 
 ---
 
