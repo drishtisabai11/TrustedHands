@@ -19,8 +19,36 @@ import { DesignSystemShowcase } from './pages/DesignSystemShowcase';
 // Auth Pages
 import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
+import { CustomerRegisterPage } from './pages/auth/CustomerRegisterPage';
+import { ProviderRegisterPage } from './pages/auth/ProviderRegisterPage';
+import { SignupSelectionPage } from './pages/auth/SignupSelectionPage';
 import { ForgotPasswordPage } from './pages/auth/ForgotPasswordPage';
 import { ResetPasswordPage } from './pages/auth/ResetPasswordPage';
+
+// Customer Dashboard Pages
+import { ProtectedRoute } from './components/auth/ProtectedRoute';
+import { DashboardLayout } from './components/layout/DashboardLayout';
+import { CustomerOverviewPage } from './pages/customer/CustomerOverviewPage';
+import { CustomerBookingsPage } from './pages/customer/CustomerBookingsPage';
+import { CustomerBookingDetailPage } from './pages/customer/CustomerBookingDetailPage';
+import { CustomerSavedPage } from './pages/customer/CustomerSavedPage';
+import { CustomerAddressesPage } from './pages/customer/CustomerAddressesPage';
+import { CustomerReviewsPage } from './pages/customer/CustomerReviewsPage';
+import { CustomerNotificationsPage } from './pages/customer/CustomerNotificationsPage';
+import { CustomerProfilePage } from './pages/customer/CustomerProfilePage';
+import { CustomerSettingsPage } from './pages/customer/CustomerSettingsPage';
+
+// Provider Dashboard Pages
+import { ProviderOverviewPage } from './pages/provider/ProviderOverviewPage';
+import { ProviderBookingsPage } from './pages/provider/ProviderBookingsPage';
+import { ProviderCalendarPage } from './pages/provider/ProviderCalendarPage';
+import { ProviderAvailabilityPage } from './pages/provider/ProviderAvailabilityPage';
+import { ProviderServicesPage } from './pages/provider/ProviderServicesPage';
+import { ProviderEarningsPage } from './pages/provider/ProviderEarningsPage';
+import { ProviderReviewsPage } from './pages/provider/ProviderReviewsPage';
+import { ProviderNotificationsPage } from './pages/provider/ProviderNotificationsPage';
+import { ProviderProfilePage as ProviderDashboardProfilePage } from './pages/provider/ProviderProfilePage';
+import { ProviderSettingsPage } from './pages/provider/ProviderSettingsPage';
 
 // Booking Pages
 import { BookingPage } from './pages/booking/BookingPage';
@@ -80,13 +108,158 @@ export const App: React.FC = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FaqPage />} />
 
-            {/* Customer Authentication Routes */}
+            {/* Authentication & Signup Routes */}
             <Route path="/auth/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/auth/register" element={<RegisterPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/signup" element={<SignupSelectionPage />} />
+            <Route path="/signup/customer" element={<CustomerRegisterPage />} />
+            <Route path="/signup/provider" element={<ProviderRegisterPage />} />
             <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/auth/reset-password" element={<ResetPasswordPage />} />
 
-            {/* Dedicated Customer Booking Journey Routes */}
+            {/* Customer Workspace Routes */}
+            <Route
+              path="/dashboard/*"
+              element={
+                <ProtectedRoute allowedRoles={['CUSTOMER', 'ADMIN']}>
+                  <DashboardLayout role="CUSTOMER">
+                    <Routes>
+                      <Route path="" element={<CustomerOverviewPage />} />
+                      <Route path="overview" element={<CustomerOverviewPage />} />
+                      <Route path="bookings" element={<CustomerBookingsPage />} />
+                      <Route path="bookings/:id" element={<CustomerBookingDetailPage />} />
+                      <Route path="saved" element={<CustomerSavedPage />} />
+                      <Route path="addresses" element={<CustomerAddressesPage />} />
+                      <Route path="reviews" element={<CustomerReviewsPage />} />
+                      <Route path="notifications" element={<CustomerNotificationsPage />} />
+                      <Route path="profile" element={<CustomerProfilePage />} />
+                      <Route path="settings" element={<CustomerSettingsPage />} />
+                      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+                    </Routes>
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/customer/*" element={<Navigate to="/dashboard" replace />} />
+
+            {/* Service Provider Workspace Routes */}
+            <Route
+              path="/provider/dashboard/*"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <Routes>
+                      <Route path="" element={<ProviderOverviewPage />} />
+                      <Route path="overview" element={<ProviderOverviewPage />} />
+                      <Route path="bookings" element={<ProviderBookingsPage />} />
+                      <Route path="calendar" element={<ProviderCalendarPage />} />
+                      <Route path="availability" element={<ProviderAvailabilityPage />} />
+                      <Route path="services" element={<ProviderServicesPage />} />
+                      <Route path="earnings" element={<ProviderEarningsPage />} />
+                      <Route path="reviews" element={<ProviderReviewsPage />} />
+                      <Route path="notifications" element={<ProviderNotificationsPage />} />
+                      <Route path="profile" element={<ProviderDashboardProfilePage />} />
+                      <Route path="settings" element={<ProviderSettingsPage />} />
+                      <Route path="*" element={<Navigate to="/provider/dashboard" replace />} />
+                    </Routes>
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/bookings"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderBookingsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/calendar"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderCalendarPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/availability"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderAvailabilityPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/services"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderServicesPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/earnings"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderEarningsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/reviews"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderReviewsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/notifications"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderNotificationsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/profile"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderDashboardProfilePage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/provider/settings"
+              element={
+                <ProtectedRoute allowedRoles={['PROVIDER', 'ADMIN']}>
+                  <DashboardLayout role="PROVIDER">
+                    <ProviderSettingsPage />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Customer Booking Journey Routes */}
             <Route path="/book/:providerId/:serviceId" element={<BookingPage />} />
             <Route path="/booking/confirmation/:bookingId" element={<BookingConfirmationPage />} />
             <Route path="/booking/:bookingId" element={<BookingDetailPage />} />
