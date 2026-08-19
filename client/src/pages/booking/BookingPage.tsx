@@ -180,7 +180,7 @@ export const BookingPage: React.FC = () => {
           name: user?.name || '',
           email: user?.email || '',
         },
-        theme: { color: '#17211D' },
+        theme: { color: '#A6533C' },
         handler: async (paymentResponse) => {
           try {
             // 4. Verify Payment Server-side
